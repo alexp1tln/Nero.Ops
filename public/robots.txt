@@ -1,0 +1,21 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Allow: /
+
+# Explicitly welcome LLM / AI Search Crawlers
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: google-extended
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+Sitemap: https://neuro-ops.ru/sitemap.xml

@@ -84,12 +84,12 @@ export function Navigation({
                   src={logoSrc} 
                   onError={handleLogoError}
                   referrerPolicy="no-referrer"
-                  alt="Nero.Ops" 
+                  alt="Neuro.Ops" 
                   className="w-28 h-28 max-w-none object-contain transition-transform duration-500 group-hover:scale-105" 
                 />
               </div>
               <span className="font-display font-semibold text-2xl tracking-tight text-white hidden sm:block">
-                Nero<span className="text-white/50 font-normal">.Ops</span>
+                Neuro<span className="text-white/50 font-normal">.Ops</span>
               </span>
             </div>
 
@@ -158,12 +158,12 @@ export function Navigation({
                       src={logoSrc} 
                       onError={handleLogoError}
                       referrerPolicy="no-referrer"
-                      alt="Nero.Ops" 
+                      alt="Neuro.Ops" 
                       className="w-28 h-28 max-w-none object-contain" 
                     />
                   </div>
                   <span className="font-display font-semibold text-2xl tracking-tight text-white">
-                    Nero.Ops
+                    Neuro.Ops
                   </span>
                 </div>
                 <button 

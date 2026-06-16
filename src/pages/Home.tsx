@@ -31,7 +31,7 @@ export function Home({ setPage }: { setPage: (page: any) => void }) {
 
   const solutions = [
     { icon: ShieldCheck, title: "Гарантированный уровень сервиса", desc: "Закрепляем сроки, метрики и финансовую ответственность за проектами в договоре SLA." },
-    { icon: Globe2, title: "Консолидация процессов", desc: "Предоставляем единое IT-решение для отслеживания хода проектов, бюджетов в Nero Portal." },
+    { icon: Globe2, title: "Консолидация процессов", desc: "Предоставляем единое IT-решение для отслеживания хода проектов, бюджетов в Neuro Portal." },
     { icon: CheckCircle2, title: "Высокая плотность талантов", desc: "124 штатных специалиста уровня Middle+ и Senior в синхронизированных командах." },
   ];
 
@@ -207,7 +207,7 @@ export function Home({ setPage }: { setPage: (page: any) => void }) {
           <div className={`glass-panel p-10 overflow-hidden relative transition-all duration-700 bg-[size:200%] bg-gradient-to-tr from-[#050510] to-[#0a0520] ${hoveredIndex !== null ? 'border-emerald-500/20 shadow-[0_0_30px_rgba(16,185,129,0.05)]' : 'border-white/5'}`}>
              <div className={`absolute -bottom-1/2 -left-1/2 w-[150%] h-[150%] blur-[140px] rounded-full pointer-events-none transition-all duration-1000 ${hoveredIndex !== null ? 'bg-[#1a3820] opacity-80' : 'bg-[#0b1f11] opacity-40'}`}></div>
              <FadeInText delay={0.2}>
-               <h3 className="text-xl font-display mb-10 text-white font-medium pb-6 border-b border-white/[0.15] relative z-10">Стандарт Nero.Ops:</h3>
+               <h3 className="text-xl font-display mb-10 text-white font-medium pb-6 border-b border-white/[0.15] relative z-10">Стандарт Neuro.Ops:</h3>
              </FadeInText>
              <div className="space-y-8 relative z-10">
               {solutions.map((p, i) => (

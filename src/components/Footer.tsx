@@ -19,12 +19,12 @@ export function Footer({ setPage }: { setPage: (p: any) => void }) {
                 src={logoSrc} 
                 onError={handleLogoError}
                 referrerPolicy="no-referrer"
-                alt="Nero.Ops" 
+                alt="Neuro.Ops" 
                 className="w-28 h-28 max-w-none object-contain transition-transform duration-500 group-hover:scale-105" 
               />
             </div>
             <span className="font-display font-semibold text-2xl tracking-tight text-white">
-              Nero<span className="text-white/50 font-normal">.Ops</span>
+              Neuro<span className="text-white/50 font-normal">.Ops</span>
             </span>
           </div>
           <p className="text-white/40 font-light max-w-sm mb-8 leading-relaxed text-[13px]">
@@ -57,7 +57,7 @@ export function Footer({ setPage }: { setPage: (p: any) => void }) {
       </div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16 pt-8 border-t border-white/[0.05] flex flex-col md:flex-row justify-between items-center text-[11px] text-white/40">
-        <p>© {new Date().getFullYear()} Nero.Ops ОГРНИП 623017890067. Все права защищены.</p>
+        <p>© {new Date().getFullYear()} Neuro.Ops ОГРНИП 623017890067. Все права защищены.</p>
         <div className="flex gap-6 mt-4 md:mt-0 uppercase tracking-widest font-semibold">
           <button onClick={() => setPage('privacy')} className="hover:text-white transition-colors">Политика конфиденциальности</button>
           <button onClick={() => setPage('sla')} className="hover:text-white transition-colors">SLA Соглашение</button>

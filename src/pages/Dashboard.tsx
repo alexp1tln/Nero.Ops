@@ -311,7 +311,7 @@ export function Dashboard({ setPage }: { setPage: (p: any) => void }) {
                     <CircleDashed className="w-8 h-8" />
                  </div>
                  <h3 className="text-xl font-medium text-white mb-2">Список заказов пуст</h3>
-                 <p className="text-white/50 mb-8 max-w-sm">Выберите необходимую услугу в каталоге, чтобы запустить процесс работы команды Nero.Ops.</p>
+                 <p className="text-white/50 mb-8 max-w-sm">Выберите необходимую услугу в каталоге, чтобы запустить процесс работы команды Neuro.Ops.</p>
                  <button 
                     onClick={() => setPage('catalog')}
                     className="bg-white text-black px-8 py-3 rounded-full text-[15px] font-medium hover:bg-white/90 transition-all shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:-translate-y-0.5"

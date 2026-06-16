@@ -57,7 +57,7 @@ export function About({ setPage }: { setPage: (page: any) => void }) {
             </h1>
             
             <FadeInText delay={0.2} className="max-w-4xl text-lg sm:text-xl text-white/60 font-light leading-relaxed mb-20 text-left">
-              Мы внедряем передовые решения на рынке B2B-интеграций. Nero.Ops предоставляет операционную поддержку корпоративного уровня без необходимости найма и удержания in-house специалистов. От сложной веб-разработки до performance-маркетинга.
+              Мы внедряем передовые решения на рынке B2B-интеграций. Neuro.Ops предоставляет операционную поддержку корпоративного уровня без необходимости найма и удержания in-house специалистов. От сложной веб-разработки до performance-маркетинга.
             </FadeInText>
 
             <FadeInText delay={0.3} className="glass-panel p-8 md:p-12">
