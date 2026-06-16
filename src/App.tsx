@@ -4,6 +4,7 @@
  */
 
 import { useState, useEffect } from 'react';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 import { AppProvider } from './context/AppContext';
 import { Navigation } from './components/Navigation';
 import { CustomCursor } from './components/CustomCursor';
@@ -48,6 +49,7 @@ export default function App() {
         </main>
         <Footer setPage={setPage} />
       </div>
+      <SpeedInsights />
     </AppProvider>
   );
 }
