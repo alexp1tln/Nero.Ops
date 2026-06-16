@@ -82,8 +82,13 @@ function LoginOverlay() {
         className="w-full max-w-lg glass-panel p-6 sm:p-10 relative z-10"
       >
         <div className="text-center mb-8 relative z-10">
-          <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-white/20 to-white/5 border border-white/20 flex items-center justify-center text-white font-display font-medium text-2xl shadow-[0_0_20px_rgba(255,255,255,0.1)] mx-auto mb-5">
-            N
+          <div className="w-16 h-16 flex items-center justify-center mx-auto mb-5">
+            <img 
+              src="https://i.postimg.cc/fL5GvPxW/4cdce90d89fdbd80eebefb2c59decedd.png" 
+              alt="Logo" 
+              className="max-w-full max-h-full object-contain" 
+              referrerPolicy="no-referrer"
+            />
           </div>
           <h2 className="text-2xl sm:text-3xl font-display font-medium text-white mb-2">Личный кабинет</h2>
           <p className="text-sm text-white/50">Доступ к вашим заказам и истории взаимодействий.</p>

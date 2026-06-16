@@ -4,6 +4,53 @@ import { auth, googleProvider, db } from '../lib/firebase';
 import { signInWithPopup, signOut as firebaseSignOut, onAuthStateChanged, User as FirebaseUser } from 'firebase/auth';
 import { collection, query, where, onSnapshot, doc, setDoc, getDocs, updateDoc } from 'firebase/firestore';
 
+export enum OperationType {
+  CREATE = 'create',
+  UPDATE = 'update',
+  DELETE = 'delete',
+  LIST = 'list',
+  GET = 'get',
+  WRITE = 'write',
+}
+
+export interface FirestoreErrorInfo {
+  error: string;
+  operationType: OperationType;
+  path: string | null;
+  authInfo: {
+    userId?: string | null;
+    email?: string | null;
+    emailVerified?: boolean | null;
+    isAnonymous?: boolean | null;
+    tenantId?: string | null;
+    providerInfo?: {
+      providerId?: string | null;
+      email?: string | null;
+    }[];
+  }
+}
+
+export function handleFirestoreError(error: unknown, operationType: OperationType, path: string | null) {
+  const errInfo: FirestoreErrorInfo = {
+    error: error instanceof Error ? error.message : String(error),
+    authInfo: {
+      userId: auth.currentUser?.uid,
+      email: auth.currentUser?.email,
+      emailVerified: auth.currentUser?.emailVerified,
+      isAnonymous: auth.currentUser?.isAnonymous,
+      tenantId: auth.currentUser?.tenantId,
+      providerInfo: auth.currentUser?.providerData?.map(provider => ({
+        providerId: provider.providerId,
+        email: provider.email,
+      })) || []
+    },
+    operationType,
+    path
+  };
+  console.error('Firestore Error: ', JSON.stringify(errInfo));
+  throw new Error(JSON.stringify(errInfo));
+}
+
 interface AppState {
   user: User | null;
   login: () => Promise<void>;
@@ -53,7 +100,7 @@ export const AppProvider: React.FC<{children: React.ReactNode}> = ({ children })
           setOrders(fetchedOrders);
           setLoading(false);
         }, (error) => {
-          console.error("Firestore listening error", error);
+          handleFirestoreError(error, OperationType.GET, 'orders');
           setLoading(false);
         });
 
@@ -107,7 +154,7 @@ export const AppProvider: React.FC<{children: React.ReactNode}> = ({ children })
       // Optional: optimistically update UI
       // But onSnapshot will handle it.
     } catch (error) {
-      console.error("Error creating order", error);
+      handleFirestoreError(error, OperationType.WRITE, `orders/${orderId}`);
     }
   };
 
@@ -116,7 +163,7 @@ export const AppProvider: React.FC<{children: React.ReactNode}> = ({ children })
     try {
       await updateDoc(doc(db, 'orders', orderId), { status });
     } catch (error) {
-      console.error("Error updating order status", error);
+      handleFirestoreError(error, OperationType.WRITE, `orders/${orderId}`);
     }
   };
 

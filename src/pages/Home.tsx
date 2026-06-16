@@ -74,7 +74,7 @@ export function Home({ setPage }: { setPage: (page: any) => void }) {
             className="inline-flex items-center gap-2.5 px-4.5 py-2 rounded-full glass border border-purple-500/20 text-xs text-purple-400 font-mono tracking-[0.12em] uppercase mb-12 shadow-[0_4px_24px_rgba(168,85,247,0.15)] cursor-default"
           >
             <span className="w-2 h-2 rounded-full bg-purple-400 shadow-[0_0_10px_rgba(168,85,247,0.8)] animate-pulse" />
-            B2B IT-Integration & Operations // Elite Bureau
+            B2B IT-Integration & Operations
           </motion.div>
           
           <motion.h1 
