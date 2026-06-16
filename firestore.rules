@@ -1,0 +1,75 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // 1. Global Safety Net
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // 2. Global Helpers
+    function isSignedIn() {
+      return request.auth != null;
+    }
+    
+    function incoming() {
+      return request.resource.data;
+    }
+    
+    function existing() {
+      return resource.data;
+    }
+    
+    function isValidId(id) {
+      return id is string && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    // Validation for Orders
+    function isValidOrder(data) {
+      return data.keys().hasAll(['serviceId', 'serviceTitle', 'status', 'date', 'userId']) &&
+             data.keys().size() == 5 &&
+             data.serviceId is string && data.serviceId.size() <= 100 &&
+             data.serviceTitle is string && data.serviceTitle.size() <= 200 &&
+             data.status is string && data.status.size() <= 50 &&
+             data.date is string && data.date.size() <= 50 &&
+             data.userId == request.auth.uid;
+    }
+
+    // Validation for Messages
+    function isValidMessage(data) {
+      return data.keys().hasAll(['userId', 'senderId', 'text', 'timestamp']) &&
+             data.keys().size() == 4 &&
+             data.userId is string && data.userId.size() <= 128 &&
+             data.senderId is string && data.senderId.size() <= 128 &&
+             data.text is string && data.text.size() <= 5000 &&
+             data.timestamp is string && data.timestamp.size() <= 50 &&
+             data.userId == request.auth.uid &&
+             data.senderId == request.auth.uid;
+    }
+
+    // 3. Document Rules
+    match /messages/{messageId} {
+      allow get: if isSignedIn() && existing().userId == request.auth.uid && isValidId(messageId);
+      allow create: if isSignedIn() && isValidId(messageId) && isValidMessage(incoming());
+      allow update: if false;
+      allow delete: if false;
+      allow list: if isSignedIn() && resource.data.userId == request.auth.uid;
+    }
+
+    match /orders/{orderId} {
+      allow get: if isSignedIn() && existing().userId == request.auth.uid && isValidId(orderId);
+      allow create: if isSignedIn() && isValidId(orderId) && isValidOrder(incoming());
+      allow update: if isSignedIn() && 
+                       isValidId(orderId) && 
+                       isValidOrder(incoming()) && 
+                       incoming().userId == existing().userId && 
+                       incoming().serviceId == existing().serviceId &&
+                       incoming().date == existing().date &&
+                       incoming().diff(existing()).affectedKeys().hasOnly(['status']);
+      allow delete: if false;
+      
+      // Allow list queries
+      allow list: if isSignedIn() && resource.data.userId == request.auth.uid;
+    }
+  }
+}
+// triggered save

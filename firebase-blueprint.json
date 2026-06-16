@@ -1,0 +1,23 @@
+{
+  "entities": {
+    "Order": {
+      "title": "Order",
+      "description": "A service order placed by a user",
+      "type": "object",
+      "properties": {
+        "serviceId": { "type": "string" },
+        "serviceTitle": { "type": "string" },
+        "status": { "type": "string" },
+        "date": { "type": "string" },
+        "userId": { "type": "string" }
+      },
+      "required": ["serviceId", "serviceTitle", "status", "date", "userId"]
+    }
+  },
+  "firestore": {
+    "/orders/{orderId}": {
+      "schema": { "$ref": "#/entities/Order" },
+      "description": "User orders/projects"
+    }
+  }
+}
