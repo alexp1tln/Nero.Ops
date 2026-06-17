@@ -19,7 +19,7 @@ export function Playground() {
     setIsTyping(true);
 
     try {
-      const res = await fetch('/api/gemini/chat', {
+      let res = await fetch('/api/gemini/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 
@@ -28,11 +28,89 @@ export function Playground() {
         }),
       });
       
-      if (!res.ok) throw new Error('Ошибка сети');
+      let useDirectAPI = false;
+      const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
+
+      if (!res.ok) {
+        if (res.status === 404 && apiKey) {
+          // Fallback to direct client-side API if backend is missing (e.g. static hosting)
+          useDirectAPI = true;
+        } else {
+          let errorText = 'Ошибка сети';
+          try {
+            const errData = await res.text();
+            if (res.status === 404) {
+              errorText = 'Ошибка 404. На вашем хостинге не запущен Node.js бэкенд, а ключ VITE_GEMINI_API_KEY не задан.';
+            } else if (res.status === 500) {
+              errorText = 'Ошибка сервера. На вашем хостинге не задана переменная окружения GEMINI_API_KEY для бэкенда.';
+            } else {
+              errorText = `Ошибка сервера: ${res.status} ${errData}`;
+            }
+          } catch(e) {}
+          throw new Error(errorText);
+        }
+      }
 
       setMessages(prev => [...prev, { role: 'bot', text: '' }]);
       setIsTyping(false);
 
+      if (useDirectAPI) {
+        // Direct call to Gemini REST API stream
+        const contents = messages.map(msg => ({
+          role: msg.role === 'bot' ? 'model' : 'user',
+          parts: [{ text: msg.text }]
+        }));
+        contents.push({ role: 'user', parts: [{ text: currentInput }] });
+
+        res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:streamGenerateContent?key=${apiKey}`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            contents,
+            systemInstruction: { parts: [{ text: "Ты — виртуальный помощник на сайте Neuro.Ops. Твоя цель — помогать посетителям находить информацию об услугах/товарах..."}] } // Note: hardcoded prompt for direct fallback to save size, real prompt is in server.
+          })
+        });
+
+        if (!res.ok) {
+           const errData = await res.json();
+           throw new Error(errData.error?.message || 'Ошибка вызова Gemini API напрямую');
+        }
+
+        const reader = res.body?.getReader();
+        const decoder = new TextDecoder();
+        if (!reader) throw new Error('Нет ридера');
+
+        while (true) {
+          const { value, done } = await reader.read();
+          if (done) break;
+          const chunkStr = decoder.decode(value, { stream: true });
+          
+          // Parse Server-Sent Events from Gemini direct API (it returns a stream of JSON arrays)
+          // Actually, default Gemini stream generates concatenated JSON text blocks. It uses chunked transfer and looks like `[ \n { ... } \n , { ... } \n ]`
+          // We can just regex out the "text" fields
+          const textMatches = chunkStr.matchAll(/"text":\s*"([^"]+)"/g);
+          let addedText = "";
+          for (const match of textMatches) {
+            // Need to unescape json strings
+            try { addedText += JSON.parse(`"${match[1]}"`); } catch(e) { addedText += match[1]; }
+          }
+          
+          if (addedText) {
+             setMessages(prev => {
+              const newMessages = [...prev];
+              const lastIdx = newMessages.length - 1;
+              newMessages[lastIdx] = {
+                ...newMessages[lastIdx],
+                text: newMessages[lastIdx].text + addedText
+              };
+              return newMessages;
+            });
+          }
+        }
+        return;
+      }
+
+      // Backend stream handling
       const reader = res.body?.getReader();
       const decoder = new TextDecoder();
       if (!reader) throw new Error('Нет ридера');
@@ -52,10 +130,10 @@ export function Playground() {
           return newMessages;
         });
       }
-    } catch(err) {
+    } catch(err: any) {
       setMessages(prev => [...prev, { 
         role: 'bot', 
-        text: 'К сожалению, произошла ошибка сети.' 
+        text: err.message || 'К сожалению, произошла ошибка сети.' 
       }]);
       setIsTyping(false);
     }
