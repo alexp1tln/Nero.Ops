@@ -17,9 +17,11 @@ import { Privacy } from './pages/Privacy';
 import { SLA } from './pages/SLA';
 import { Stack } from './pages/Stack';
 import { Contact } from './pages/Contact';
+import { Playground } from './pages/Playground';
+import { Cases } from './pages/Cases';
 import { Footer } from './components/Footer';
 
-export type Page = 'home' | 'about' | 'catalog' | 'dashboard' | 'faq' | 'privacy' | 'sla' | 'stack' | 'contact';
+export type Page = 'home' | 'about' | 'catalog' | 'dashboard' | 'faq' | 'privacy' | 'sla' | 'stack' | 'contact' | 'playground' | 'cases';
 
 export default function App() {
   const [page, setPage] = useState<Page>('home');
@@ -45,6 +47,8 @@ export default function App() {
           {page === 'sla' && <SLA />}
           {page === 'stack' && <Stack />}
           {page === 'contact' && <Contact />}
+          {page === 'playground' && <Playground />}
+          {page === 'cases' && <Cases setPage={setPage} />}
         </main>
         <Footer setPage={setPage} />
       </div>

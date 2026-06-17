@@ -40,9 +40,9 @@ export function Navigation({
     { id: 'home', label: 'Главная' },
     { id: 'about', label: 'О компании' },
     { id: 'catalog', label: 'Услуги' },
+    { id: 'cases', label: 'Кейсы' },
+    { id: 'playground', label: 'Демо' },
     { id: 'stack', label: 'Стек' },
-    { id: 'faq', label: 'FAQ' },
-    { id: 'contact', label: 'Контакты' },
   ];
 
   const handleNavClick = (id: string) => {
@@ -64,7 +64,7 @@ export function Navigation({
             <span className="text-[10px] sm:text-[11px] md:text-xs font-semibold tracking-wider text-white/90 text-center flex items-center gap-1.5 sm:gap-2">
               <span className="hidden sm:inline">Только для новых партнеров: закажите бесплатный аудит ваших процессов.</span>
               <span className="sm:hidden">Новым клиентам: бесплатный аудит.</span>
-              <button onClick={() => setPage('contact')} className="text-purple-400 hover:text-purple-300 transition-colors flex items-center shrink-0">
+              <button onClick={() => window.open('https://t.me/neuro_0ps?text=Здравствуйте! Я увидел акцию на сайте о бесплатном Welcome-аудите процессов. Расскажите подробнее, пожалуйста.', '_blank')} className="text-purple-400 hover:text-purple-300 transition-colors flex items-center shrink-0">
                 <span className="hidden sm:inline">Welcome-аудит (0 ₽)</span>
                 <span className="sm:hidden">Заказать</span> <ChevronRight className="w-3 h-3 sm:w-3.5 sm:h-3.5 ml-0.5" />
               </button>
