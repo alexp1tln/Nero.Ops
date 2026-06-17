@@ -37,9 +37,9 @@ export function About({ setPage }: { setPage: (page: any) => void }) {
   ];
 
   return (
-    <div className="flex-col min-h-screen relative bg-transparent pt-48 pb-20">
+    <div className="flex-col min-h-screen relative bg-transparent pt-32 pb-16 md:pt-48 md:pb-20">
       {/* Intro section */}
-      <section className="relative pt-24 pb-24 overflow-hidden border-b border-white/[0.05] z-10 w-full">
+      <section className="relative pt-16 pb-16 md:pt-24 md:pb-24 overflow-hidden border-b border-white/[0.05] z-10 w-full">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -101,7 +101,7 @@ export function About({ setPage }: { setPage: (page: any) => void }) {
               <FadeInText delay={i * 0.1} key={i}>
                 <InteractiveCard 
                   onClick={() => setPage('catalog')}
-                  className="glass-panel p-10 flex flex-col justify-between hover:shadow-[0_8px_32px_rgba(255,255,255,0.05)] hover:border-white/20 transition-all duration-300 group cursor-pointer h-full"
+                  className="glass-panel p-6 sm:p-10 flex flex-col justify-between hover:shadow-[0_8px_32px_rgba(255,255,255,0.05)] hover:border-white/20 transition-all duration-300 group cursor-pointer h-full"
                 >
                   <div className="relative z-10">
                     <h3 className="text-2xl font-display font-medium text-white mb-4 group-hover:text-white/80 transition-colors">{dep.title}</h3>

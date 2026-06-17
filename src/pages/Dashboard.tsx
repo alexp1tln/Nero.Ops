@@ -75,7 +75,7 @@ function LoginOverlay() {
   };
 
   return (
-    <div className="flex-1 flex items-center justify-center p-4 min-h-screen relative bg-transparent pt-36 pb-16">
+    <div className="flex-1 flex items-center justify-center p-4 min-h-screen relative bg-transparent pt-24 pb-12 sm:pt-36 sm:pb-16">
       <motion.div 
         initial={{ opacity: 0, y: 15 }}
         animate={{ opacity: 1, y: 0 }}
@@ -258,7 +258,7 @@ export function Dashboard({ setPage }: { setPage: (p: any) => void }) {
   if (!user) return <LoginOverlay />;
 
   return (
-    <div className="flex-1 flex flex-col md:flex-row w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-48 pb-24 gap-8 min-h-screen relative">
+    <div className="flex-1 flex flex-col md:flex-row w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-16 md:pt-48 md:pb-24 gap-8 min-h-screen relative">
       <aside className="w-full md:w-64 flex-shrink-0 flex flex-col gap-2 relative z-10">
         <div className="mb-6 px-4 hidden md:block">
            <div className="text-[11px] uppercase tracking-widest font-semibold text-white/40 mb-1">Организация</div>
@@ -306,7 +306,7 @@ export function Dashboard({ setPage }: { setPage: (p: any) => void }) {
            </div>
 
            {orders.length === 0 ? (
-              <div className="glass-panel p-12 text-center flex flex-col items-center justify-center min-h-[300px]">
+              <div className="glass-panel p-6 sm:p-12 text-center flex flex-col items-center justify-center min-h-[300px]">
                  <div className="w-16 h-16 rounded-full bg-white/5 border border-white/10 flex items-center justify-center mb-6 text-white/30">
                     <CircleDashed className="w-8 h-8" />
                  </div>

@@ -26,7 +26,7 @@ export function Stack() {
   const categories = Array.from(new Set(stackList.map(item => item.category)));
 
   return (
-    <div className="pt-48 pb-40 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full min-h-screen bg-transparent relative">
+    <div className="pt-32 pb-24 md:pt-48 md:pb-40 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full min-h-screen bg-transparent relative">
        <motion.div 
          initial={{ opacity: 0, y: 30 }}
          animate={{ opacity: 1, y: 0 }}

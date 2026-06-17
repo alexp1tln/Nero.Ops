@@ -49,7 +49,7 @@ export function Home({ setPage }: { setPage: (page: any) => void }) {
 
 
       {/* Hero Section */}
-      <section className="relative pt-48 pb-32 lg:pt-56 lg:pb-40 flex flex-col justify-center min-h-[95vh] px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
+      <section className="relative pt-32 pb-24 sm:pt-48 sm:pb-32 lg:pt-56 lg:pb-40 flex flex-col justify-center min-h-[90vh] sm:min-h-[95vh] px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
         {/* Abstract Geometric Background */}
         <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none opacity-[0.18] mix-blend-lighten" style={{ WebkitMaskImage: 'radial-gradient(ellipse at center, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 75%)', maskImage: 'radial-gradient(ellipse at center, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 75%)' }}>
            <img 
@@ -81,10 +81,10 @@ export function Home({ setPage }: { setPage: (page: any) => void }) {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className="text-5xl sm:text-7xl lg:text-[5.5rem] font-display font-semibold tracking-wide mb-8 max-w-5xl leading-[1.05]"
+            className="text-[2.2rem] sm:text-7xl lg:text-[5.5rem] font-display font-semibold tracking-wide mb-6 sm:mb-8 max-w-5xl leading-[1.15] sm:leading-[1.05]"
           >
             <span className="premium-gradient-text">Системное развитие</span> <br className="hidden md:block" />
-            <span className="text-white/45 block mt-2 text-purple-200/90 [text-shadow:0_0_40px_rgba(168,85,247,0.25)]">цифровой инфраструктуры.</span>
+            <span className="text-white/45 block mt-2 text-purple-200/90 [text-shadow:0_0_40px_rgba(168,85,247,0.25)] break-words hyphens-auto sm:break-normal">цифровой инфраструктуры.</span>
           </motion.h1>
           
           <motion.p 
@@ -104,7 +104,7 @@ export function Home({ setPage }: { setPage: (page: any) => void }) {
           >
             <button 
               onClick={() => setPage('catalog')}
-              className="bg-purple-600 text-white hover:bg-purple-500 px-8 py-4 rounded-full font-semibold text-sm transition-all shadow-[0_4px_14px_rgba(168,85,247,0.3)] hover:shadow-[0_6px_20px_rgba(168,85,247,0.5)] hover:-translate-y-0.5 flex items-center justify-center gap-3 w-full sm:w-auto font-mono tracking-[0.05em]"
+              className="bg-purple-600 text-white hover:bg-purple-500 px-6 py-3.5 sm:px-8 sm:py-4 rounded-full font-semibold text-sm transition-all shadow-[0_4px_14px_rgba(168,85,247,0.3)] hover:shadow-[0_6px_20px_rgba(168,85,247,0.5)] hover:-translate-y-0.5 flex items-center justify-center gap-3 w-full sm:w-auto font-mono tracking-[0.05em]"
             >
               Изучить решения
               <ArrowRight className="w-4 h-4" />
@@ -177,7 +177,7 @@ export function Home({ setPage }: { setPage: (page: any) => void }) {
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-8 relative overflow-visible">
-          <div className="glass-panel p-10 overflow-hidden relative border border-white/5 bg-black/40">
+          <div className="glass-panel p-6 sm:p-10 overflow-hidden relative border border-white/5 bg-black/40">
              <div className={`absolute -bottom-1/2 -right-1/2 w-[150%] h-[150%] bg-[radial-gradient(circle,#300505_0%,transparent_70%)] rounded-full pointer-events-none transition-opacity duration-1000 ${hoveredIndex !== null ? 'opacity-30' : 'opacity-15'}`}></div>
              
              <FadeInText delay={0.1}>
@@ -204,7 +204,7 @@ export function Home({ setPage }: { setPage: (page: any) => void }) {
              </div>
           </div>
           
-          <div className={`glass-panel p-10 overflow-hidden relative transition-all duration-700 bg-[size:200%] bg-gradient-to-tr from-[#050510] to-[#0a0520] ${hoveredIndex !== null ? 'border-emerald-500/20 shadow-[0_0_30px_rgba(16,185,129,0.05)]' : 'border-white/5'}`}>
+          <div className={`glass-panel p-6 sm:p-10 overflow-hidden relative transition-all duration-700 bg-[size:200%] bg-gradient-to-tr from-[#050510] to-[#0a0520] ${hoveredIndex !== null ? 'border-emerald-500/20 shadow-[0_0_30px_rgba(16,185,129,0.05)]' : 'border-white/5'}`}>
              <div className={`absolute -bottom-1/2 -left-1/2 w-[150%] h-[150%] bg-[radial-gradient(circle,rgba(26,56,32,0.8)_0%,transparent_70%)] rounded-full pointer-events-none transition-all duration-1000 ${hoveredIndex !== null ? 'opacity-100' : 'opacity-40'}`}></div>
              <FadeInText delay={0.2}>
                <h3 className="text-xl font-display mb-10 text-white font-medium pb-6 border-b border-white/[0.15] relative z-10">Стандарт Neuro.Ops:</h3>
@@ -249,11 +249,11 @@ export function Home({ setPage }: { setPage: (page: any) => void }) {
             <FadeInText delay={i * 0.1} key={i}>
               <InteractiveCard 
                 onClick={() => setPage('faq')}
-                className="glass p-8 rounded-3xl hover:shadow-[0_8px_32px_rgba(255,255,255,0.1)] hover:border-white/20 transition-all duration-300 group cursor-pointer h-full"
+                className="glass p-6 sm:p-8 rounded-[1.5rem] sm:rounded-3xl hover:shadow-[0_8px_32px_rgba(255,255,255,0.1)] hover:border-white/20 transition-all duration-300 group cursor-pointer h-full"
               >
-                <div className="text-white/20 font-display font-bold text-5xl mb-6 relative z-10 group-hover:text-white/40 transition-colors">{step.number}</div>
-                <h3 className="text-[17px] font-display font-medium text-white mb-3 relative z-10 group-hover:text-white transition-colors">{step.title}</h3>
-                <p className="text-[13px] text-white/50 font-light leading-relaxed relative z-10">{step.desc}</p>
+                <div className="text-white/20 font-display font-bold text-4xl sm:text-5xl mb-4 sm:mb-6 relative z-10 group-hover:text-white/40 transition-colors">{step.number}</div>
+                <h3 className="text-[16px] sm:text-[17px] font-display font-medium text-white mb-2 sm:mb-3 relative z-10 group-hover:text-white transition-colors">{step.title}</h3>
+                <p className="text-[12px] sm:text-[13px] text-white/50 font-light leading-relaxed relative z-10">{step.desc}</p>
               </InteractiveCard>
             </FadeInText>
           ))}
@@ -266,10 +266,10 @@ export function Home({ setPage }: { setPage: (page: any) => void }) {
            initial={{ opacity: 0, y: 20 }}
            whileInView={{ opacity: 1, y: 0 }}
            viewport={{ once: true, margin: "-100px" }}
-           className="glass-panel p-8 md:p-16 relative overflow-hidden"
+           className="glass-panel p-6 sm:p-8 md:p-16 relative overflow-hidden"
         >
            <div className="absolute top-0 right-0 w-96 h-96 bg-[radial-gradient(circle,rgba(255,255,255,0.05)_0%,transparent_70%)] rounded-full pointer-events-none" />
-           <div className="grid lg:grid-cols-2 gap-16 items-center relative z-10">
+           <div className="grid lg:grid-cols-2 gap-10 md:gap-16 items-center relative z-10">
              <div>
                <h2 className="text-4xl lg:text-5xl font-display font-semibold mb-6 tracking-tight text-white">Доверьте нам свой рост.</h2>
                <p className="text-lg text-white/60 font-light leading-relaxed mb-10 max-w-lg">
@@ -312,9 +312,9 @@ export function Home({ setPage }: { setPage: (page: any) => void }) {
             animate={{ opacity: 1, x: 0, scale: 1 }}
             exit={{ opacity: 0, x: 100, scale: 0.9 }}
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            className="fixed bottom-8 right-8 z-[150] max-w-sm w-[calc(100%-2rem)]"
+            className="hidden sm:block fixed bottom-4 left-4 right-4 sm:left-auto sm:right-8 sm:bottom-8 z-[150] sm:w-[320px]"
           >
-            <div className="glass p-6 rounded-3xl shadow-[0_8px_32px_rgba(0,0,0,0.4)] border border-white/10 relative bg-[#0a0a0a]/90 backdrop-blur-2xl">
+            <div className="glass p-5 sm:p-6 rounded-2xl sm:rounded-3xl shadow-[0_8px_32px_rgba(0,0,0,0.4)] border border-white/10 relative bg-[#0a0a0a]/90 backdrop-blur-2xl">
               <button 
                 onClick={() => {
                   setShowSlideIn(false);
@@ -322,20 +322,20 @@ export function Home({ setPage }: { setPage: (page: any) => void }) {
                 }} 
                 className="absolute top-4 right-4 text-white/40 hover:text-white transition-colors"
               >
-                <X className="w-5 h-5" />
+                <X className="w-5 h-5 sm:w-5 sm:h-5" />
               </button>
-              <div className="w-10 h-10 rounded-2xl flex items-center justify-center bg-purple-900/30 text-purple-400 border border-purple-500/20 mb-4 shadow-inner">
-                <Phone className="w-5 h-5" />
+              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl sm:rounded-2xl flex items-center justify-center bg-purple-900/30 text-purple-400 border border-purple-500/20 mb-3 sm:mb-4 shadow-inner">
+                <Phone className="w-4 h-4 sm:w-5 sm:h-5" />
               </div>
-              <h4 className="text-[17px] font-display font-medium text-white mb-2 leading-tight">Готовы обсудить ваш проект?</h4>
-              <p className="text-sm text-white/50 font-light mb-5">
+              <h4 className="text-[15px] sm:text-[17px] font-display font-medium text-white mb-2 leading-tight">Готовы обсудить ваш проект?</h4>
+              <p className="text-[13px] sm:text-sm text-white/50 font-light mb-4 sm:mb-5">
                 Оставьте заявку для конфиденциального брифа с нашим Senior-менеджером.
               </p>
               <a 
                 href="https://t.me/NEURO_0PS" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="w-full bg-white text-black hover:bg-white/90 font-semibold py-3 rounded-xl text-sm transition-all shadow-[0_4px_14px_rgba(255,255,255,0.2)] hover:shadow-[0_6px_20px_rgba(255,255,255,0.3)] hover:-translate-y-0.5 inline-flex justify-center items-center"
+                className="w-full bg-white text-black hover:bg-white/90 font-semibold py-2.5 sm:py-3 rounded-xl text-[13px] sm:text-sm transition-all shadow-[0_4px_14px_rgba(255,255,255,0.2)] hover:shadow-[0_6px_20px_rgba(255,255,255,0.3)] hover:-translate-y-0.5 inline-flex justify-center items-center"
               >
                 Связаться с менеджером
               </a>

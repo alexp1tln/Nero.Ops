@@ -62,27 +62,27 @@ export function PriceCalculator({ setPage }: { setPage: (p: any) => void }) {
                        whileHover={{ scale: 1.01 }}
                        whileTap={{ scale: 0.99 }}
                        onClick={() => toggleService(s.id)}
-                       className={`p-6 rounded-3xl border transition-all duration-300 cursor-pointer backdrop-blur-xl relative overflow-hidden flex flex-col justify-between min-h-[140px] ${
+                       className={`p-5 sm:p-6 rounded-2xl sm:rounded-3xl border transition-all duration-300 cursor-pointer backdrop-blur-xl relative overflow-hidden flex flex-col justify-between min-h-[120px] sm:min-h-[140px] ${
                          selected.has(s.id) 
                            ? 'bg-white/[0.08] border-white/30 shadow-[0_8px_32px_rgba(255,255,255,0.05)]' 
                            : 'bg-white/[0.03] border-white/5 hover:bg-white/[0.06] hover:border-white/10 shadow-sm'
                        }`}
                     >
-                       <div className="absolute top-6 right-6">
-                         <div className={`w-6 h-6 rounded-full border flex items-center justify-center transition-colors ${
+                       <div className="absolute top-4 right-4 sm:top-6 sm:right-6">
+                         <div className={`w-5 h-5 sm:w-6 sm:h-6 rounded-full border flex items-center justify-center transition-colors ${
                            selected.has(s.id) ? 'bg-white border-white text-black' : 'border-white/20 bg-black/20 text-transparent'
                          }`}>
-                           <Check className="w-3.5 h-3.5" />
+                           <Check className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
                          </div>
                        </div>
                        
-                       <div className="pr-10">
-                         <h4 className="text-[17px] font-display font-medium text-white mb-2 leading-tight">{s.name}</h4>
-                         <p className="text-sm font-light text-white/50 leading-relaxed mb-4">{s.desc}</p>
+                       <div className="pr-8 sm:pr-10">
+                         <h4 className="text-[15px] sm:text-[17px] font-display font-medium text-white mb-1.5 sm:mb-2 leading-tight">{s.name}</h4>
+                         <p className="text-[13px] sm:text-sm font-light text-white/50 leading-relaxed mb-3 sm:mb-4">{s.desc}</p>
                        </div>
-                       <div className="mt-auto pt-4 border-t border-white/5 flex items-center justify-between">
-                         <span className="font-mono text-sm tracking-widest text-[#f5f5f7]">{s.price.toLocaleString('ru-RU')} ₽</span>
-                         <span className="text-[10px] uppercase font-semibold tracking-widest text-white/30">в мес</span>
+                       <div className="mt-auto pt-3 sm:pt-4 border-t border-white/5 flex items-center justify-between">
+                         <span className="font-mono text-[13px] sm:text-sm tracking-widest text-[#f5f5f7]">{s.price.toLocaleString('ru-RU')} ₽</span>
+                         <span className="text-[9px] sm:text-[10px] uppercase font-semibold tracking-widest text-white/30">в мес</span>
                        </div>
                     </motion.div>
                   ))}
@@ -103,27 +103,27 @@ export function PriceCalculator({ setPage }: { setPage: (p: any) => void }) {
                        whileHover={{ scale: 1.02 }}
                        whileTap={{ scale: 0.98 }}
                        onClick={() => toggleService(s.id)}
-                       className={`p-6 rounded-3xl border transition-all duration-300 cursor-pointer backdrop-blur-xl relative overflow-hidden flex flex-col justify-between min-h-[140px] ${
+                       className={`p-5 sm:p-6 rounded-2xl sm:rounded-3xl border transition-all duration-300 cursor-pointer backdrop-blur-xl relative overflow-hidden flex flex-col justify-between min-h-[120px] sm:min-h-[140px] ${
                          selected.has(s.id) 
                            ? 'bg-white/[0.08] border-white/30 shadow-[0_8px_32px_rgba(255,255,255,0.05)]' 
                            : 'bg-white/[0.03] border-white/5 hover:bg-white/[0.06] hover:border-white/10 shadow-sm'
                        }`}
                     >
-                       <div className="absolute top-6 right-6">
-                         <div className={`w-6 h-6 rounded-full border flex items-center justify-center transition-colors ${
+                       <div className="absolute top-4 right-4 sm:top-6 sm:right-6">
+                         <div className={`w-5 h-5 sm:w-6 sm:h-6 rounded-full border flex items-center justify-center transition-colors ${
                            selected.has(s.id) ? 'bg-white border-white text-black' : 'border-white/20 bg-black/20 text-transparent'
                          }`}>
-                           <Check className="w-3.5 h-3.5" />
+                           <Check className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
                          </div>
                        </div>
                        
-                       <div className="pr-10">
-                         <h4 className="text-[17px] font-display font-medium text-white mb-2 leading-tight">{s.name}</h4>
-                         <p className="text-sm font-light text-white/50 leading-relaxed mb-4">{s.desc}</p>
+                       <div className="pr-8 sm:pr-10">
+                         <h4 className="text-[15px] sm:text-[17px] font-display font-medium text-white mb-1.5 sm:mb-2 leading-tight">{s.name}</h4>
+                         <p className="text-[13px] sm:text-sm font-light text-white/50 leading-relaxed mb-3 sm:mb-4">{s.desc}</p>
                        </div>
-                       <div className="mt-auto pt-4 border-t border-white/5 flex items-center justify-between">
-                         <span className="font-mono text-sm tracking-widest text-[#f5f5f7]">{s.price.toLocaleString('ru-RU')} ₽</span>
-                         <span className="text-[10px] uppercase font-semibold tracking-widest text-white/30">Разово</span>
+                       <div className="mt-auto pt-3 sm:pt-4 border-t border-white/5 flex items-center justify-between">
+                         <span className="font-mono text-[13px] sm:text-sm tracking-widest text-[#f5f5f7]">{s.price.toLocaleString('ru-RU')} ₽</span>
+                         <span className="text-[9px] sm:text-[10px] uppercase font-semibold tracking-widest text-white/30">Разово</span>
                        </div>
                     </motion.div>
                   ))}
@@ -133,7 +133,7 @@ export function PriceCalculator({ setPage }: { setPage: (p: any) => void }) {
 
           {/* Sticky Total Bill (right) */}
           <div className="lg:col-span-4 sticky top-24">
-             <div className="glass p-8 rounded-[2.5rem] relative overflow-hidden shadow-2xl border border-white/10">
+             <div className="glass p-6 md:p-8 rounded-[2rem] md:rounded-[2.5rem] relative overflow-hidden shadow-2xl border border-white/10">
                <div className="absolute top-0 right-0 w-64 h-64 bg-[radial-gradient(circle,rgba(255,255,255,0.05)_0%,transparent_70%)] rounded-full pointer-events-none" />
                
                <h3 className="text-xl font-display font-medium text-white mb-8 flex items-center gap-3">

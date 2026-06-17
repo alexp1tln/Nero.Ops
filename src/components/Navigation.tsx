@@ -52,43 +52,46 @@ export function Navigation({
 
   return (
     <>
+      <div className={`fixed top-0 left-0 right-0 z-50 transition-transform duration-500 ${isNavHidden ? '-translate-y-full opacity-0 pointer-events-none' : 'translate-y-0 opacity-100'}`}>
       <AnimatePresence>
         {isPromoVisible && !isNavHidden && (
           <motion.div 
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            className="bg-gradient-to-r from-transparent via-purple-900/30 to-transparent border-b border-purple-500/20 px-4 py-2.5 flex items-center justify-center relative z-[60] overflow-hidden"
+            className="bg-gradient-to-r from-[#170a2a] via-purple-900/30 to-[#170a2a] border-b border-purple-500/20 px-3 py-1.5 sm:px-4 sm:py-2.5 flex items-center justify-center relative z-[60] overflow-hidden"
           >
-            <span className="text-[11px] sm:text-xs font-semibold tracking-wider text-white/90 text-center flex flex-col sm:flex-row items-center gap-1 sm:gap-2">
-              <span>Только для новых партнеров: закажите бесплатный аудит ваших процессов и получите дорожную карту оптимизации.</span>
+            <span className="text-[10px] sm:text-[11px] md:text-xs font-semibold tracking-wider text-white/90 text-center flex items-center gap-1.5 sm:gap-2">
+              <span className="hidden sm:inline">Только для новых партнеров: закажите бесплатный аудит ваших процессов.</span>
+              <span className="sm:hidden">Новым клиентам: бесплатный аудит.</span>
               <button onClick={() => setPage('contact')} className="text-purple-400 hover:text-purple-300 transition-colors flex items-center shrink-0">
-                Welcome-аудит (0 ₽) <ChevronRight className="w-3.5 h-3.5 ml-0.5" />
+                <span className="hidden sm:inline">Welcome-аудит (0 ₽)</span>
+                <span className="sm:hidden">Заказать</span> <ChevronRight className="w-3 h-3 sm:w-3.5 sm:h-3.5 ml-0.5" />
               </button>
             </span>
-            <button onClick={() => setIsPromoVisible(false)} className="absolute right-2 md:right-4 z-20 p-2 text-white/40 hover:text-white transition-colors cursor-pointer">
-              <X className="w-5 h-5 md:w-4 md:h-4" />
+            <button onClick={() => setIsPromoVisible(false)} className="absolute right-1 sm:right-2 md:right-4 z-20 p-1.5 sm:p-2 text-white/40 hover:text-white transition-colors cursor-pointer">
+              <X className="w-4 h-4 sm:w-5 sm:h-5 md:w-4 md:h-4" />
             </button>
           </motion.div>
         )}
       </AnimatePresence>
-      <header className={`fixed ${isPromoVisible && !isNavHidden ? 'top-[60px] sm:top-[36px]' : 'top-0'} left-0 right-0 z-50 transition-all duration-500 ${isScrolled ? 'py-4' : 'py-6'} px-4 sm:px-6 lg:px-8 ${isNavHidden ? '-translate-y-full opacity-0 pointer-events-none' : 'translate-y-0 opacity-100'}`}>
+      <header className={`transition-all duration-500 ${isScrolled ? 'py-2 sm:py-4' : 'py-4 sm:py-6'} px-4 sm:px-6 lg:px-8 w-full`}>
         <div className="max-w-7xl mx-auto">
-          <div className={`flex justify-between items-center px-6 transition-all duration-500 rounded-[2rem] ${isScrolled ? 'glass h-16 shadow-[0_8px_32px_rgba(0,0,0,0.4)]' : 'h-20 bg-transparent'}`}>
+          <div className={`flex justify-between items-center sm:px-6 transition-all duration-500 sm:rounded-[2rem] ${isScrolled ? 'h-12 sm:h-16 sm:glass sm:shadow-[0_8px_32px_rgba(0,0,0,0.4)]' : 'h-14 sm:h-20 bg-transparent'}`}>
             <div 
-              className="flex items-center gap-4 cursor-pointer group"
+              className="flex items-center gap-3 sm:gap-4 cursor-pointer group"
               onClick={() => handleNavClick('home')}
             >
-              <div className="w-28 h-28 flex items-center justify-center text-white transition-all duration-300">
+              <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 flex items-center justify-center text-white transition-all duration-300">
                 <img 
                   src={logoSrc} 
                   onError={handleLogoError}
                   referrerPolicy="no-referrer"
                   alt="Neuro.Ops" 
-                  className="w-28 h-28 max-w-none object-contain transition-transform duration-500 group-hover:scale-105" 
+                  className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105 filter brightness-0 invert" 
                 />
               </div>
-              <span className="font-display font-semibold text-2xl tracking-tight text-white hidden sm:block">
+              <span className="font-display font-semibold text-xl sm:text-2xl tracking-tight text-white hidden sm:block">
                 Neuro<span className="text-white/50 font-normal">.Ops</span>
               </span>
             </div>
@@ -132,15 +135,16 @@ export function Navigation({
               </button>
               
               <button 
-                className="lg:hidden p-2 text-white/80 hover:text-white transition-colors"
+                className="lg:hidden p-1.5 sm:p-2 text-white/80 hover:text-white transition-colors"
                 onClick={() => setIsMobileMenuOpen(true)}
               >
-                <Menu className="w-6 h-6" />
+                <Menu className="w-5 h-5 sm:w-6 sm:h-6" />
               </button>
             </div>
           </div>
         </div>
       </header>
+      </div>
 
       <AnimatePresence>
         {isMobileMenuOpen && (
@@ -148,21 +152,21 @@ export function Navigation({
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[100] bg-black/60 backdrop-blur-3xl"
+            className="fixed inset-0 z-[100] bg-[#070708]"
           >
             <div className="flex flex-col h-full p-6">
               <div className="flex justify-between items-center mb-12">
-                <div className="flex items-center gap-4">
-                  <div className="w-28 h-28 flex items-center justify-center">
+                <div className="flex items-center gap-3 sm:gap-4">
+                  <div className="w-12 h-12 flex items-center justify-center">
                     <img 
                       src={logoSrc} 
                       onError={handleLogoError}
                       referrerPolicy="no-referrer"
                       alt="Neuro.Ops" 
-                      className="w-28 h-28 max-w-none object-contain" 
+                      className="w-full h-full object-contain filter brightness-0 invert" 
                     />
                   </div>
-                  <span className="font-display font-semibold text-2xl tracking-tight text-white">
+                  <span className="font-display font-semibold text-xl sm:text-2xl tracking-tight text-white">
                     Neuro.Ops
                   </span>
                 </div>
@@ -182,7 +186,7 @@ export function Navigation({
                     transition={{ delay: i * 0.1 }}
                     key={item.id}
                     onClick={() => handleNavClick(item.id)}
-                    className={`text-3xl font-display font-medium tracking-tight ${
+                    className={`text-xl sm:text-3xl font-display font-medium tracking-tight ${
                       currentPage === item.id ? 'premium-gradient-text' : 'text-white/50'
                     }`}
                   >

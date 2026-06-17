@@ -3,7 +3,7 @@ import { Shield } from 'lucide-react';
 
 export function Privacy() {
   return (
-    <div className="pt-48 pb-40 max-w-5xl mx-auto px-4 sm:px-6 w-full min-h-screen bg-transparent relative">
+    <div className="pt-32 pb-24 md:pt-48 md:pb-40 max-w-5xl mx-auto px-4 sm:px-6 w-full min-h-screen bg-transparent relative">
       <motion.div 
          initial={{ opacity: 0, y: 30 }}
          animate={{ opacity: 1, y: 0 }}
@@ -14,7 +14,7 @@ export function Privacy() {
           <span className="w-1.5 h-1.5 rounded-full bg-white" />
           Политика
         </div>
-        <h1 className="text-5xl md:text-7xl font-display font-semibold text-white tracking-tight mb-8">Конфиденциальность</h1>
+        <h1 className="text-4xl sm:text-5xl md:text-7xl font-display font-semibold text-white tracking-tight mb-8 break-words hyphens-auto sm:break-normal">Конфиденциальность</h1>
         <p className="text-xl text-white/50 font-light max-w-2xl mx-auto leading-relaxed">
           Мы серьезно относимся к безопасности ваших данных. Ваш корпоративный и личный контекст защищен передовыми протоколами шифрования.
         </p>
