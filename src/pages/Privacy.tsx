@@ -1,9 +1,11 @@
 import { motion } from 'motion/react';
 import { Shield } from 'lucide-react';
+import { SEO } from '../components/SEO';
 
 export function Privacy() {
   return (
     <div className="pt-32 pb-24 md:pt-48 md:pb-40 max-w-5xl mx-auto px-4 sm:px-6 w-full min-h-screen bg-transparent relative">
+      <SEO title="Политика конфиденциальности" description="Политика конфиденциальности Neuro.Ops. Узнайте, как мы защищаем ваши корпоративные и личные данные." />
       <motion.div 
          initial={{ opacity: 0, y: 30 }}
          animate={{ opacity: 1, y: 0 }}

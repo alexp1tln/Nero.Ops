@@ -11,6 +11,7 @@ import {
   signInWithEmailAndPassword, 
   updateProfile
 } from 'firebase/auth';
+import { SEO } from '../components/SEO';
 
 function LoginOverlay() {
   const { login } = useAppContext();
@@ -255,10 +256,16 @@ export function Dashboard({ setPage }: { setPage: (p: any) => void }) {
     );
   }
 
-  if (!user) return <LoginOverlay />;
+  if (!user) return (
+    <>
+      <SEO title="Вход в личный кабинет" description="Авторизуйтесь для доступа к заказам и услугам Neuro.Ops." />
+      <LoginOverlay />
+    </>
+  );
 
   return (
     <div className="flex-1 flex flex-col md:flex-row w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-16 md:pt-48 md:pb-24 gap-8 min-h-screen relative">
+      <SEO title="Личный кабинет" description="Ваши заказы, документы и настройки профиля в системе Neuro.Ops." />
       <aside className="w-full md:w-64 flex-shrink-0 flex flex-col gap-2 relative z-10">
         <div className="mb-6 px-4 hidden md:block">
            <div className="text-[11px] uppercase tracking-widest font-semibold text-white/40 mb-1">Организация</div>

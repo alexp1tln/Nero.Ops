@@ -4,6 +4,7 @@ import { ContactForm } from '../components/ContactForm';
 import { InteractiveCard } from '../components/InteractiveCard';
 import { AnimatedCounter } from '../components/AnimatedCounter';
 import { FadeInText } from '../components/FadeInText';
+import { SEO } from '../components/SEO';
 
 export function About({ setPage }: { setPage: (page: any) => void }) {
   const departments = [
@@ -38,6 +39,7 @@ export function About({ setPage }: { setPage: (page: any) => void }) {
 
   return (
     <div className="flex-col min-h-screen relative bg-transparent pt-32 pb-16 md:pt-48 md:pb-20">
+      <SEO title="О компании" description="Neuro.Ops: IT-интегратор с экспертными командами. Узнайте о нашей структуре, подходе и принципах работы." />
       {/* Intro section */}
       <section className="relative pt-16 pb-16 md:pt-24 md:pb-24 overflow-hidden border-b border-white/[0.05] z-10 w-full">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

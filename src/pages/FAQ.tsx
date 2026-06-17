@@ -1,6 +1,7 @@
 import { motion, AnimatePresence } from 'motion/react';
 import { Plus, Minus } from 'lucide-react';
 import { useState } from 'react';
+import { SEO } from '../components/SEO';
 
 export function FAQ() {
   const faqs = [
@@ -30,6 +31,7 @@ export function FAQ() {
 
   return (
     <div className="pt-32 pb-24 md:pt-48 md:pb-40 max-w-5xl mx-auto px-4 sm:px-6 w-full min-h-screen bg-transparent relative">
+      <SEO title="Вопросы и ответы" description="Ответы на частые вопросы о работе с Neuro.Ops, SLA, сроках и гарантиях." />
       <motion.div 
          initial={{ opacity: 0, y: 30 }}
          whileInView={{ opacity: 1, y: 0 }}

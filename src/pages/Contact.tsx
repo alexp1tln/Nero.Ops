@@ -2,10 +2,12 @@ import { motion } from 'motion/react';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
 import { ContactForm } from '../components/ContactForm';
 import { InteractiveCard } from '../components/InteractiveCard';
+import { SEO } from '../components/SEO';
 
 export function Contact() {
   return (
     <div className="pt-32 pb-24 md:pt-48 md:pb-40 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full min-h-screen bg-transparent relative">
+       <SEO title="Контакты" description="Свяжитесь с Neuro.Ops для консультации, аудита или запуска нового IT-проекта." />
        <motion.div 
          initial={{ opacity: 0, y: 30 }}
          animate={{ opacity: 1, y: 0 }}

@@ -1,6 +1,7 @@
 import { motion } from 'motion/react';
 import { Database, Code, Cpu, Server, Globe, Key } from 'lucide-react';
 import { InteractiveCard } from '../components/InteractiveCard';
+import { SEO } from '../components/SEO';
 
 interface TechItem {
   name: string;
@@ -27,6 +28,7 @@ export function Stack() {
 
   return (
     <div className="pt-32 pb-24 md:pt-48 md:pb-40 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full min-h-screen bg-transparent relative">
+       <SEO title="Технологический стек" description="Используемые Neuro.Ops технологии: React, Node.js, PostgreSQL, LLM Models." />
        <motion.div 
          initial={{ opacity: 0, y: 30 }}
          animate={{ opacity: 1, y: 0 }}

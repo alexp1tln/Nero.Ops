@@ -1,10 +1,12 @@
 import { motion } from 'motion/react';
 import { Activity, Clock, ShieldAlert } from 'lucide-react';
 import { InteractiveCard } from '../components/InteractiveCard';
+import { SEO } from '../components/SEO';
 
 export function SLA() {
   return (
     <div className="pt-32 pb-24 md:pt-48 md:pb-40 max-w-5xl mx-auto px-4 sm:px-6 w-full min-h-screen bg-transparent relative">
+       <SEO title="Service Level Agreement" description="Наше соглашение об уровне обслуживания: 99.9% аптайм, матрица инцидентов и финансовые гарантии." />
        <motion.div 
          initial={{ opacity: 0, y: 30 }}
          animate={{ opacity: 1, y: 0 }}

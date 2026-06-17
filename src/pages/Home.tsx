@@ -4,6 +4,7 @@ import { ContactForm } from '../components/ContactForm';
 import { FadeInText } from '../components/FadeInText';
 import { InteractiveCard } from '../components/InteractiveCard';
 import { useState, useEffect } from 'react';
+import { SEO } from '../components/SEO';
 
 export function Home({ setPage }: { setPage: (page: any) => void }) {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
@@ -44,6 +45,7 @@ export function Home({ setPage }: { setPage: (page: any) => void }) {
 
   return (
     <div className="flex flex-col min-h-screen relative overflow-hidden bg-transparent pb-20 blueprint-grid">
+      <SEO />
       
       {/* High-Tech Blueprint Side Indicators (Executive Perspective) */}
 

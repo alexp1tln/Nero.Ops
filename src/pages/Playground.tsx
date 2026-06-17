@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import { Terminal, Send, MessageSquare, Bot, ArrowRight, Zap, Database, Lock, Search } from 'lucide-react';
 import { SYSTEM_PROMPT } from '../../prompt';
+import { SEO } from '../components/SEO';
 
 export function Playground() {
   const [messages, setMessages] = useState<Array<{role: 'user' | 'bot', text: string}>>([
@@ -88,6 +89,7 @@ export function Playground() {
 
   return (
     <div className="pt-24 sm:pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full relative z-10">
+      <SEO title="Демо-стенд ИИ" description="Интерактивная песочница Neuro.Ops. Протестируйте работу ИИ-агентов на практике." />
       <div className="max-w-3xl mx-auto text-center mb-16">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

@@ -7,6 +7,7 @@ import {
 } from 'lucide-react';
 import { useAppContext } from '../context/AppContext';
 import { Service } from '../types';
+import { SEO } from '../components/SEO';
 
 const SERVICES: Service[] = [
   {
@@ -177,6 +178,7 @@ export function Catalog({ setPage }: { setPage: (p: any) => void }) {
 
   return (
     <div className="flex-col min-h-screen relative bg-transparent pt-32 pb-16 md:pt-48 md:pb-20 w-full overflow-hidden">
+      <SEO title="Каталог услуг" description="Спектр решений от Neuro.Ops: разработка, маркетинг, дизайн и автоматизация" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div 
