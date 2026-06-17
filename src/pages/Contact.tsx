@@ -46,7 +46,7 @@ export function Contact() {
         </div>
 
         <div className="glass-panel p-8 md:p-12 relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 blur-[80px] rounded-full pointer-events-none" />
+          <div className="absolute top-0 right-0 w-64 h-64 bg-[radial-gradient(circle,rgba(255,255,255,0.05)_0%,transparent_70%)] rounded-full pointer-events-none" />
           <h3 className="text-2xl font-display font-medium text-white mb-8 relative z-10">Оставьте заявку</h3>
           <ContactForm />
         </div>

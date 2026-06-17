@@ -134,7 +134,7 @@ export function PriceCalculator({ setPage }: { setPage: (p: any) => void }) {
           {/* Sticky Total Bill (right) */}
           <div className="lg:col-span-4 sticky top-24">
              <div className="glass p-8 rounded-[2.5rem] relative overflow-hidden shadow-2xl border border-white/10">
-               <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 blur-[80px] rounded-full pointer-events-none" />
+               <div className="absolute top-0 right-0 w-64 h-64 bg-[radial-gradient(circle,rgba(255,255,255,0.05)_0%,transparent_70%)] rounded-full pointer-events-none" />
                
                <h3 className="text-xl font-display font-medium text-white mb-8 flex items-center gap-3">
                  <FileText className="w-5 h-5 text-white/40" />
@@ -166,7 +166,7 @@ export function PriceCalculator({ setPage }: { setPage: (p: any) => void }) {
                </div>
 
                <div className="bg-purple-900/20 border border-purple-500/30 rounded-2xl p-4 mb-6 shadow-inner relative overflow-hidden">
-                 <div className="absolute top-0 right-0 w-24 h-24 bg-purple-400/20 blur-[30px] rounded-full pointer-events-none" />
+                 <div className="absolute top-0 right-0 w-24 h-24 bg-[radial-gradient(circle,rgba(168,85,247,0.2)_0%,transparent_70%)] rounded-full pointer-events-none" />
                  <div className="flex items-center gap-2 mb-2">
                    <div className="w-2 h-2 rounded-full bg-purple-400 shadow-[0_0_8px_rgba(168,85,247,0.8)]" />
                    <span className="text-xs font-semibold tracking-widest text-purple-400 uppercase">Комплементарный бонус</span>

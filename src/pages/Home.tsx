@@ -178,7 +178,7 @@ export function Home({ setPage }: { setPage: (page: any) => void }) {
 
         <div className="grid lg:grid-cols-2 gap-8 relative overflow-visible">
           <div className="glass-panel p-10 overflow-hidden relative border border-white/5 bg-black/40">
-             <div className={`absolute -bottom-1/2 -right-1/2 w-[150%] h-[150%] bg-[#300505] blur-[140px] rounded-full pointer-events-none transition-opacity duration-1000 ${hoveredIndex !== null ? 'opacity-30' : 'opacity-15'}`}></div>
+             <div className={`absolute -bottom-1/2 -right-1/2 w-[150%] h-[150%] bg-[radial-gradient(circle,#300505_0%,transparent_70%)] rounded-full pointer-events-none transition-opacity duration-1000 ${hoveredIndex !== null ? 'opacity-30' : 'opacity-15'}`}></div>
              
              <FadeInText delay={0.1}>
                <h3 className="text-xl font-display mb-10 text-white/50 font-medium pb-6 border-b border-white/10 relative z-10">Почему хаотичный найм не работает:</h3>
@@ -205,7 +205,7 @@ export function Home({ setPage }: { setPage: (page: any) => void }) {
           </div>
           
           <div className={`glass-panel p-10 overflow-hidden relative transition-all duration-700 bg-[size:200%] bg-gradient-to-tr from-[#050510] to-[#0a0520] ${hoveredIndex !== null ? 'border-emerald-500/20 shadow-[0_0_30px_rgba(16,185,129,0.05)]' : 'border-white/5'}`}>
-             <div className={`absolute -bottom-1/2 -left-1/2 w-[150%] h-[150%] blur-[140px] rounded-full pointer-events-none transition-all duration-1000 ${hoveredIndex !== null ? 'bg-[#1a3820] opacity-80' : 'bg-[#0b1f11] opacity-40'}`}></div>
+             <div className={`absolute -bottom-1/2 -left-1/2 w-[150%] h-[150%] bg-[radial-gradient(circle,rgba(26,56,32,0.8)_0%,transparent_70%)] rounded-full pointer-events-none transition-all duration-1000 ${hoveredIndex !== null ? 'opacity-100' : 'opacity-40'}`}></div>
              <FadeInText delay={0.2}>
                <h3 className="text-xl font-display mb-10 text-white font-medium pb-6 border-b border-white/[0.15] relative z-10">Стандарт Neuro.Ops:</h3>
              </FadeInText>
@@ -268,7 +268,7 @@ export function Home({ setPage }: { setPage: (page: any) => void }) {
            viewport={{ once: true, margin: "-100px" }}
            className="glass-panel p-8 md:p-16 relative overflow-hidden"
         >
-           <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 blur-[100px] rounded-full pointer-events-none" />
+           <div className="absolute top-0 right-0 w-96 h-96 bg-[radial-gradient(circle,rgba(255,255,255,0.05)_0%,transparent_70%)] rounded-full pointer-events-none" />
            <div className="grid lg:grid-cols-2 gap-16 items-center relative z-10">
              <div>
                <h2 className="text-4xl lg:text-5xl font-display font-semibold mb-6 tracking-tight text-white">Доверьте нам свой рост.</h2>

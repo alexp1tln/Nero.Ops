@@ -19,13 +19,13 @@ export function AnimatedBackground() {
         }}
       />
       
-      {/* Moving Blobs - Deep Dark Variants for premium strict feel */}
-      <div className="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] rounded-full bg-white/[0.015] blur-[150px] animate-blob" />
-      <div className="absolute top-[-10%] right-[-10%] w-[50vw] h-[50vw] rounded-full bg-white/[0.015] blur-[150px] animate-blob animation-delay-2000" />
-      <div className="absolute bottom-[-20%] left-[20%] w-[60vw] h-[60vw] rounded-full bg-white/[0.02] blur-[150px] animate-blob animation-delay-4000" />
+      {/* Moving Blobs - Using radial gradients instead of massive CSS blurs to prevent mobile browser crashes */}
+      <div className="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.03)_0%,transparent_70%)] animate-blob" />
+      <div className="absolute top-[-10%] right-[-10%] w-[50vw] h-[50vw] rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.03)_0%,transparent_70%)] animate-blob animation-delay-2000" />
+      <div className="absolute bottom-[-20%] left-[20%] w-[60vw] h-[60vw] rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.04)_0%,transparent_70%)] animate-blob animation-delay-4000" />
       
-      {/* Grain / Noise Overlay */}
-      <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.25] mix-blend-overlay"></div>
+      {/* Grain / Noise Overlay - disabled blend mode on mobile for performance */}
+      <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.25] sm:mix-blend-overlay pointer-events-none"></div>
     </div>
   );
 }
