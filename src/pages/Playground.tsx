@@ -21,34 +21,22 @@ export function Playground() {
     setIsTyping(true);
 
     try {
-      const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
-
-      if (!apiKey) {
-        throw new Error('Ключ VITE_GEMINI_API_KEY не задан в переменных окружения.');
-      }
-
       setMessages(prev => [...prev, { role: 'bot', text: '' }]);
       setIsTyping(false);
 
-      // Direct call to Gemini REST API stream
-      const contents = messages.map(msg => ({
-        role: msg.role === 'bot' ? 'model' : 'user',
-        parts: [{ text: msg.text }]
-      }));
-      contents.push({ role: 'user', parts: [{ text: currentInput }] });
-
-      const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:streamGenerateContent?key=${apiKey}`, {
+      const res = await fetch(`/api/chat`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          contents,
-          systemInstruction: { parts: [{ text: SYSTEM_PROMPT }] }
+          messages: messages,
+          text: currentInput,
+          systemInstruction: SYSTEM_PROMPT
         })
       });
 
       if (!res.ok) {
-         const errData = await res.json();
-         throw new Error(errData.error?.message || 'Ошибка вызова Gemini API');
+         const errData = await res.json().catch(() => ({}));
+         throw new Error(errData.error || 'Ошибка сети или API заблокировано (попробуйте использовать VPN).');
       }
 
       const reader = res.body?.getReader();
@@ -60,19 +48,13 @@ export function Playground() {
         if (done) break;
         const chunkStr = decoder.decode(value, { stream: true });
         
-        const textMatches = chunkStr.matchAll(/"text":\s*"([^"]+)"/g);
-        let addedText = "";
-        for (const match of textMatches) {
-          try { addedText += JSON.parse(`"${match[1]}"`); } catch(e) { addedText += match[1]; }
-        }
-        
-        if (addedText) {
+        if (chunkStr) {
            setMessages(prev => {
             const newMessages = [...prev];
             const lastIdx = newMessages.length - 1;
             newMessages[lastIdx] = {
               ...newMessages[lastIdx],
-              text: newMessages[lastIdx].text + addedText
+              text: newMessages[lastIdx].text + chunkStr
             };
             return newMessages;
           });
