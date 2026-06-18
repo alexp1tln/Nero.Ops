@@ -73,8 +73,17 @@ export const AppProvider: React.FC<{children: React.ReactNode}> = ({ children })
 
   useEffect(() => {
     let unsubscribeOrders: (() => void) | undefined;
+    let authResolved = false;
+
+    const fallbackTimeout = setTimeout(() => {
+      if (!authResolved) {
+        setLoading(false);
+        console.warn('Firebase auth timeout - possibly blocked by network/adblocker.');
+      }
+    }, 4000);
 
     const unsubscribeAuth = onAuthStateChanged(auth, (firebaseUser) => {
+      authResolved = true;
       if (firebaseUser) {
         setUser({
           name: firebaseUser.displayName || firebaseUser.phoneNumber || firebaseUser.email?.split('@')[0] || 'Пользователь',
@@ -113,7 +122,9 @@ export const AppProvider: React.FC<{children: React.ReactNode}> = ({ children })
         setLoading(false);
       }
     });
+    
     return () => {
+      clearTimeout(fallbackTimeout);
       unsubscribeAuth();
       if (unsubscribeOrders) {
         unsubscribeOrders();

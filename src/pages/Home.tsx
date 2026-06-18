@@ -55,11 +55,11 @@ export function Home({ setPage }: { setPage: (page: any) => void }) {
         {/* Abstract Geometric Background */}
         <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none opacity-[0.18] mix-blend-lighten" style={{ WebkitMaskImage: 'radial-gradient(ellipse at center, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 75%)', maskImage: 'radial-gradient(ellipse at center, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 75%)' }}>
            <img 
-              src="https://images.unsplash.com/photo-1531297172-a1a10408544d?q=60&w=1200&auto=format&fit=crop" 
+              src="https://images.unsplash.com/photo-1531297172-a1a10408544d?q=60&w=800&auto=format&fit=crop" 
               alt="Gothic Cyberpunk Minimalist Background" 
               className="w-full h-full object-cover object-center translate-y-[-5%] scale-110 filter grayscale contrast-[1.4] brightness-[0.45] select-none pointer-events-none"
-              loading="eager"
-              fetchPriority="high"
+              loading="lazy"
+              decoding="async"
            />
            <div className="absolute inset-0 bg-[#000] opacity-40 mix-blend-multiply"></div>
            <div className="absolute inset-0 bg-gradient-to-t from-[#000000] via-transparent to-[#000000]"></div>
