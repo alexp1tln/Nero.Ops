@@ -44,16 +44,21 @@ export function CustomCursor() {
       }
     };
 
-    const handleMouseLeave = () => setIsVisible(false);
+    const handleMouseOut = (e: MouseEvent) => {
+      // e.relatedTarget is null when leaving the document or entering a cross-origin iframe
+      if (!e.relatedTarget) {
+        setIsVisible(false);
+      }
+    };
 
     window.addEventListener('mousemove', updateMousePosition);
     window.addEventListener('mouseover', handleMouseOver);
-    document.addEventListener('mouseleave', handleMouseLeave);
+    document.addEventListener('mouseout', handleMouseOut);
 
     return () => {
       window.removeEventListener('mousemove', updateMousePosition);
       window.removeEventListener('mouseover', handleMouseOver);
-      document.removeEventListener('mouseleave', handleMouseLeave);
+      document.removeEventListener('mouseout', handleMouseOut);
     };
   }, [isVisible, smoothX, smoothY, ringX, ringY]);
 
@@ -62,7 +67,7 @@ export function CustomCursor() {
   }
 
   return (
-    <div style={{ opacity: isVisible ? 1 : 0 }} className="transition-opacity duration-300">
+    <div style={{ opacity: isVisible ? 1 : 0 }} className="transition-opacity duration-300 pointer-events-none">
       <style dangerouslySetInnerHTML={{ __html: `
         @media (pointer: fine) {
           * { cursor: none !important; }

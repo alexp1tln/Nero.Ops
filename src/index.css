@@ -17,11 +17,11 @@ h1, h2, h3, h4, h5, h6, .font-display {
 
 /* Premium iOS Glassmorphism - Noir Style */
 .glass {
-  @apply bg-[#000000]/[0.4] backdrop-blur-2xl border border-white/[0.04] shadow-[inset_0_1px_1px_rgba(255,255,255,0.05),0_8px_32px_rgba(0,0,0,0.9)];
+  @apply bg-[#000000]/[0.4] backdrop-blur-md sm:backdrop-blur-xl border border-white/[0.04] shadow-[inset_0_1px_1px_rgba(255,255,255,0.05),0_8px_32px_rgba(0,0,0,0.9)];
 }
 
 .glass-panel {
-  @apply bg-[#000000]/[0.5] backdrop-blur-2xl border border-white/[0.04] shadow-[inset_0_1px_1px_rgba(255,255,255,0.05),0_12px_40px_rgba(0,0,0,0.9)] rounded-3xl;
+  @apply bg-[#000000]/[0.5] backdrop-blur-md sm:backdrop-blur-xl border border-white/[0.04] shadow-[inset_0_1px_1px_rgba(255,255,255,0.05),0_12px_40px_rgba(0,0,0,0.9)] rounded-3xl;
 }
 
 @keyframes blob {

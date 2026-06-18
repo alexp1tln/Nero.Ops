@@ -48,7 +48,35 @@ async function startServer() {
       res.end();
     } catch (error: any) {
       console.error('Gemini API Error:', error);
-      res.status(500).json({ error: error.message || 'Внутренняя ошибка сервера. Возможно, проблема с доступом к Gemini API.' });
+      
+      let errorMessage = 'Внутренняя ошибка сервера. Возможно, проблема с доступом к Gemini API.';
+      
+      try {
+        // Try parsing assuming error.message might be a stringified JSON (from ApiError)
+        let parsed = error.message;
+        if (typeof error.message === 'string' && error.message.includes('"code": 429') && error.message.includes('"status": "RESOURCE_EXHAUSTED"')) {
+            errorMessage = 'Лимит бесплатных запросов к Gemini API исчерпан. Пожалуйста, подождите немного или проверьте ваш тарифный план Cloudflare/Gemini.';
+        } else if (error.status === 429) {
+            errorMessage = 'Лимит бесплатных запросов к Gemini API исчерпан. Пожалуйста, подождите немного.';
+        } else if (typeof error.message === 'string' && error.message.includes('"code": 503') && error.message.includes('"status": "UNAVAILABLE"')) {
+            errorMessage = 'Модель временно недоступна из-за высокой нагрузки. Пожалуйста, повторите попытку позже.';
+        } else if (error.status === 503) {
+            errorMessage = 'Модель временно недоступна из-за высокой нагрузки. Пожалуйста, перезайдите или повторите попытку позже.';
+        } else if (error.message) {
+            errorMessage = error.message;
+            const parsedJson = JSON.parse(error.message);
+            if (parsedJson?.error?.message) {
+               errorMessage = parsedJson.error.message;
+            }
+        }
+      } catch(e) {}
+      
+      // If headers are already sent, res.status().json() will fail.
+      if (!res.headersSent) {
+          res.status(500).json({ error: errorMessage });
+      } else {
+          res.end(`\n\n[Ошибка: ${errorMessage}]`);
+      }
     }
   });
 

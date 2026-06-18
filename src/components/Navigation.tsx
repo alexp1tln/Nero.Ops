@@ -41,7 +41,6 @@ export function Navigation({
     { id: 'about', label: 'О компании' },
     { id: 'catalog', label: 'Услуги' },
     { id: 'cases', label: 'Кейсы' },
-    { id: 'playground', label: 'Демо' },
     { id: 'stack', label: 'Стек' },
   ];
 
