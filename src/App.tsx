@@ -10,7 +10,6 @@ import { CustomCursor } from './components/CustomCursor';
 import { AnimatedBackground } from './components/AnimatedBackground';
 import { Home } from './pages/Home';
 import { Catalog } from './pages/Catalog';
-import { Dashboard } from './pages/Dashboard';
 import { About } from './pages/About';
 import { FAQ } from './pages/FAQ';
 import { Privacy } from './pages/Privacy';
@@ -41,7 +40,6 @@ export default function App() {
           {page === 'about' && <About setPage={setPage} />}
           {page === 'catalog' && <Catalog setPage={setPage} />}
           {page === 'faq' && <FAQ />}
-          {page === 'dashboard' && <Dashboard setPage={setPage} />}
           {page === 'privacy' && <Privacy />}
           {page === 'sla' && <SLA />}
           {page === 'stack' && <Stack />}

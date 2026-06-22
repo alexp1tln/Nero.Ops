@@ -148,18 +148,11 @@ export function Catalog({ setPage }: { setPage: (p: any) => void }) {
   const [selectedService, setSelectedService] = useState<Service | null>(null);
 
   const handleOrder = async (service: Service) => {
-    if (!user) {
-      setPage('dashboard'); // This will show the login screen
-      return;
-    }
-    await placeOrder(service);
-    
     const text = `Здравствуйте! Хочу заказать услугу:%0A- ${service.title}%0AПредварительная стоимость: ${service.price}`;
     const url = `https://t.me/neuro_0ps?text=${text}`;
     window.open(url, '_blank');
     
     setSelectedService(null);
-    setPage('dashboard');
   };
 
   useEffect(() => {
@@ -316,7 +309,7 @@ export function Catalog({ setPage }: { setPage: (p: any) => void }) {
                       onClick={() => handleOrder(selectedService)}
                       className="bg-purple-600 text-white hover:bg-purple-500 py-3 sm:py-4 px-6 sm:px-8 rounded-xl sm:rounded-2xl font-semibold text-[14px] sm:text-[15px] transition-all shadow-[0_4px_20px_rgba(168,85,247,0.3)] hover:shadow-[0_6px_24px_rgba(168,85,247,0.5)] hover:-translate-y-0.5 inline-flex items-center gap-3 w-full sm:w-auto justify-center"
                     >
-                      {user ? 'Оформить заявку на проект' : 'Авторизоваться и Начать'}
+                      Оформить заявку на проект
                       <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
                     </button>
                   </div>

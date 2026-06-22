@@ -194,30 +194,13 @@ export function PriceCalculator({ setPage }: { setPage: (p: any) => void }) {
 
                <button 
                   onClick={() => {
-                     if (!user) {
-                       setPage('dashboard');
-                       return;
-                     }
                      const selectedList = CALCULATOR_SERVICES.filter(s => selected.has(s.id));
                      const total = oneTimeTotal + monthlyTotal;
                      const itemsText = selectedList.map(s => `- ${s.name}`).join('%0A');
                      const text = `Здравствуйте! Хочу заказать следующие услуги:%0A${itemsText}%0A%0AПредварительная итоговая сумма: ${total.toLocaleString('ru-RU')} ₽`;
                      const url = `https://t.me/neuro_0ps?text=${text}`;
                      
-                     selectedList.forEach(s => {
-                       placeOrder({
-                         id: s.id,
-                         title: s.name,
-                         description: s.desc,
-                         longDescription: '',
-                         features: [],
-                         iconName: 'FileText',
-                         price: s.price.toString()
-                       });
-                     });
-                     
                      window.open(url, '_blank');
-                     setPage('dashboard');
                   }}
                   disabled={selected.size === 0}
                   className={`w-full py-4.5 rounded-2xl font-semibold text-[15px] transition-all flex items-center justify-center gap-2 ${

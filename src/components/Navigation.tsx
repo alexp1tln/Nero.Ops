@@ -116,23 +116,6 @@ export function Navigation({
             </nav>
 
             <div className="flex items-center gap-4">
-              <button
-                onClick={() => handleNavClick('dashboard')}
-                className="hidden sm:flex items-center gap-2 bg-purple-600 text-white hover:bg-purple-500 px-6 py-2.5 rounded-full text-[13px] font-semibold transition-all shadow-[0_4px_14px_rgba(168,85,247,0.3)] hover:shadow-[0_6px_20px_rgba(168,85,247,0.5)] hover:-translate-y-0.5"
-              >
-                {user ? (
-                  <>
-                    <LayoutGrid className="w-4 h-4" />
-                    Кабинет
-                  </>
-                ) : (
-                  <>
-                    Войти
-                    <ArrowRight className="w-4 h-4" />
-                  </>
-                )}
-              </button>
-              
               <button 
                 className="lg:hidden p-1.5 sm:p-2 text-white/80 hover:text-white transition-colors"
                 onClick={() => setIsMobileMenuOpen(true)}
@@ -200,22 +183,6 @@ export function Navigation({
                 transition={{ delay: 0.4 }}
                 className="mt-auto"
               >
-                <button
-                  onClick={() => handleNavClick('dashboard')}
-                  className="w-full flex items-center justify-center gap-2 bg-purple-600 text-white px-6 py-4 rounded-2xl text-lg font-semibold shadow-[0_4px_20px_rgba(168,85,247,0.3)]"
-                >
-                  {user ? (
-                    <>
-                      <LayoutGrid className="w-5 h-5" />
-                      Панель управления
-                    </>
-                  ) : (
-                    <>
-                      Авторизация
-                      <ArrowRight className="w-5 h-5" />
-                    </>
-                  )}
-                </button>
               </motion.div>
             </div>
           </motion.div>
