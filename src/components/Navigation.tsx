@@ -74,11 +74,11 @@ export function Navigation({
           </motion.div>
         )}
       </AnimatePresence>
-      <header className={`transition-all duration-500 ${isScrolled ? 'py-2 sm:py-4' : 'py-4 sm:py-6'} px-4 sm:px-6 lg:px-8 w-full`}>
-        <div className="max-w-7xl mx-auto">
-          <div className={`flex justify-between items-center sm:px-6 transition-all duration-500 sm:rounded-[2rem] ${isScrolled ? 'h-12 sm:h-16 sm:glass sm:shadow-[0_8px_32px_rgba(0,0,0,0.4)]' : 'h-14 sm:h-20 bg-transparent'}`}>
+      <header className={`transition-all duration-500 w-full z-50 backdrop-blur-xl border-b border-white/[0.08] ${isScrolled ? 'bg-[#08080c]/90 shadow-[0_8px_32px_rgba(0,0,0,0.8)]' : 'bg-[#08080c]/60 shadow-[0_8px_32px_rgba(0,0,0,0.4)]'}`}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+          <div className="flex justify-between items-center h-16 sm:h-20 relative">
             <div 
-              className="flex items-center gap-3 sm:gap-4 cursor-pointer group"
+              className="flex items-center gap-3 sm:gap-4 cursor-pointer group w-1/3"
               onClick={() => handleNavClick('home')}
             >
               <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 flex items-center justify-center text-white transition-all duration-300">
@@ -95,7 +95,7 @@ export function Navigation({
               </span>
             </div>
 
-            <nav className="hidden lg:flex items-center gap-5 xl:gap-8">
+            <nav className="hidden lg:flex items-center justify-center gap-5 xl:gap-8 absolute left-1/2 -translate-x-1/2">
               {navItems.map((item) => (
                 <button
                   key={item.id}
@@ -115,7 +115,7 @@ export function Navigation({
               ))}
             </nav>
 
-            <div className="flex items-center gap-4">
+            <div className="flex items-center justify-end gap-4 w-1/3">
               <button 
                 className="lg:hidden p-1.5 sm:p-2 text-white/80 hover:text-white transition-colors"
                 onClick={() => setIsMobileMenuOpen(true)}

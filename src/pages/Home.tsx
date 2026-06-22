@@ -44,7 +44,7 @@ export function Home({ setPage }: { setPage: (page: any) => void }) {
   ];
 
   return (
-    <div className="flex flex-col min-h-screen relative overflow-hidden bg-transparent pb-20 blueprint-grid">
+    <div className="flex flex-col min-h-screen relative overflow-hidden bg-transparent pb-20">
       <SEO />
       
       {/* High-Tech Blueprint Side Indicators (Executive Perspective) */}
@@ -108,7 +108,7 @@ export function Home({ setPage }: { setPage: (page: any) => void }) {
           >
             <button 
               onClick={() => setPage('catalog')}
-              className="bg-purple-600 text-white hover:bg-purple-500 px-6 py-3.5 sm:px-8 sm:py-4 rounded-full font-semibold text-sm transition-all shadow-[0_4px_14px_rgba(168,85,247,0.3)] hover:shadow-[0_6px_20px_rgba(168,85,247,0.5)] hover:-translate-y-0.5 flex items-center justify-center gap-3 w-full sm:w-auto font-mono tracking-[0.05em]"
+              className="bg-purple-800 text-white hover:bg-purple-700 px-6 py-3.5 sm:px-8 sm:py-4 rounded-full font-semibold text-sm transition-all shadow-[0_4px_14px_rgba(168,85,247,0.3)] hover:shadow-[0_6px_20px_rgba(168,85,247,0.5)] hover:-translate-y-0.5 flex items-center justify-center gap-3 w-full sm:w-auto font-mono tracking-[0.05em]"
             >
               Изучить решения
               <ArrowRight className="w-4 h-4" />
@@ -118,7 +118,7 @@ export function Home({ setPage }: { setPage: (page: any) => void }) {
       </section>
 
       {/* Corporate Ticker (Trusted By) */}
-      <section className="py-12 overflow-hidden relative border-y border-white/[0.05] bg-white/[0.01]">
+      <section className="py-12 overflow-hidden relative border-y border-white/[0.05] bg-[#08080c]/60">
         <div className="absolute left-0 top-0 w-32 h-full bg-gradient-to-r from-black to-transparent z-10 pointer-events-none" />
         <div className="absolute right-0 top-0 w-32 h-full bg-gradient-to-l from-black to-transparent z-10 pointer-events-none" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8 relative z-20">
@@ -181,8 +181,8 @@ export function Home({ setPage }: { setPage: (page: any) => void }) {
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-8 relative overflow-visible">
-          <div className="glass-panel p-6 sm:p-10 overflow-hidden relative border border-white/5 bg-black/40">
-             <div className={`absolute -bottom-1/2 -right-1/2 w-[150%] h-[150%] bg-[radial-gradient(circle,#300505_0%,transparent_70%)] rounded-full pointer-events-none transition-opacity duration-1000 ${hoveredIndex !== null ? 'opacity-30' : 'opacity-15'}`}></div>
+          <div className="glass-panel p-6 sm:p-10 overflow-hidden relative border border-white/5 bg-[#08080c]/60">
+             <div className={`absolute -bottom-1/2 -right-1/2 w-[150%] h-[150%] bg-[radial-gradient(circle,#7a0505_0%,transparent_70%)] rounded-full pointer-events-none transition-opacity duration-1000 ${hoveredIndex !== null ? 'opacity-40' : 'opacity-20'}`}></div>
              
              <FadeInText delay={0.1}>
                <h3 className="text-xl font-display mb-10 text-white/50 font-medium pb-6 border-b border-white/10 relative z-10">Почему хаотичный найм не работает:</h3>
@@ -280,7 +280,7 @@ export function Home({ setPage }: { setPage: (page: any) => void }) {
                  Организуем установочный звонок на 30 минут с ведущим аналитиком для аудита бизнес-процессов.
                </p>
                <div className="flex flex-col gap-5">
-                 <div className="flex items-center gap-4 bg-white/[0.03] p-5 rounded-2xl border border-white/5 backdrop-blur-md">
+                 <div className="flex items-center gap-4 bg-[#08080c]/60 p-5 rounded-2xl border border-white/5 backdrop-blur-md">
                    <div className="w-12 h-12 rounded-xl flex items-center justify-center bg-gray-500/10 text-gray-400 border border-gray-500/20">
                      <ShieldCheck className="w-6 h-6" />
                    </div>
@@ -289,7 +289,7 @@ export function Home({ setPage }: { setPage: (page: any) => void }) {
                      <span className="text-white/50 text-[13px] font-light mt-0.5">Информация защищена 256-bit шифрованием</span>
                    </div>
                  </div>
-                 <div className="flex items-center gap-4 bg-white/[0.03] p-5 rounded-2xl border border-white/5 backdrop-blur-md">
+                 <div className="flex items-center gap-4 bg-[#08080c]/60 p-5 rounded-2xl border border-white/5 backdrop-blur-md">
                    <div className="w-12 h-12 rounded-xl flex items-center justify-center bg-red-900/10 text-red-500 border border-red-900/20">
                      <Cpu className="w-6 h-6" />
                    </div>

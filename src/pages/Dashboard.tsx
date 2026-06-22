@@ -178,7 +178,7 @@ function LoginOverlay() {
                       placeholder="Иван Иванов"
                       value={name}
                       onChange={(e) => setName(e.target.value)}
-                      className="w-full bg-white/[0.03] border border-white/[0.08] text-white pl-11 pr-4 py-3.5 rounded-xl focus:outline-none focus:border-white/30 focus:bg-white/[0.07] transition-all min-h-[44px]"
+                      className="w-full bg-[#08080c]/60 border border-white/[0.08] text-white pl-11 pr-4 py-3.5 rounded-xl focus:outline-none focus:border-white/30 focus:bg-white/[0.07] transition-all min-h-[44px]"
                     />
                   </div>
                 </div>
@@ -194,7 +194,7 @@ function LoginOverlay() {
                     placeholder="example@corp.com"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="w-full bg-white/[0.03] border border-white/[0.08] text-white pl-11 pr-4 py-3.5 rounded-xl focus:outline-none focus:border-white/30 focus:bg-white/[0.07] transition-all min-h-[44px]"
+                    className="w-full bg-[#08080c]/60 border border-white/[0.08] text-white pl-11 pr-4 py-3.5 rounded-xl focus:outline-none focus:border-white/30 focus:bg-white/[0.07] transition-all min-h-[44px]"
                   />
                 </div>
               </div>
@@ -209,7 +209,7 @@ function LoginOverlay() {
                     placeholder="••••••••"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    className="w-full bg-white/[0.03] border border-white/[0.08] text-white pl-11 pr-4 py-3.5 rounded-xl focus:outline-none focus:border-white/30 focus:bg-white/[0.07] transition-all min-h-[44px]"
+                    className="w-full bg-[#08080c]/60 border border-white/[0.08] text-white pl-11 pr-4 py-3.5 rounded-xl focus:outline-none focus:border-white/30 focus:bg-white/[0.07] transition-all min-h-[44px]"
                   />
                 </div>
               </div>

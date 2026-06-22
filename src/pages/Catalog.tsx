@@ -212,7 +212,7 @@ export function Catalog({ setPage }: { setPage: (p: any) => void }) {
               >
                 <div className="glow-overlay rounded-3xl z-0"></div>
                 <div className="relative z-10">
-                  <div className="w-12 h-12 rounded-xl border border-white/[0.08] bg-white/[0.02] shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)] flex items-center justify-center text-white/50 mb-6 group-hover:border-white/20 group-hover:bg-white/5 group-hover:text-white transition-all duration-300">
+                  <div className="w-12 h-12 rounded-xl border border-white/[0.08] bg-[#08080c]/60 shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)] flex items-center justify-center text-white/50 mb-6 group-hover:border-white/20 group-hover:bg-[#08080c]/80 group-hover:text-white transition-all duration-300">
                     <Icon className="w-5 h-5" strokeWidth={1.5} />
                   </div>
                   <h3 className="text-xl font-display font-medium mb-3 text-white">{service.title}</h3>
@@ -246,7 +246,7 @@ export function Catalog({ setPage }: { setPage: (p: any) => void }) {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                className="absolute inset-0 bg-black/60 backdrop-blur-3xl"
+                className="absolute inset-0 bg-[#08080c]/80 backdrop-blur-3xl"
                 onClick={() => setSelectedService(null)}
               />
               <motion.div
@@ -258,7 +258,7 @@ export function Catalog({ setPage }: { setPage: (p: any) => void }) {
               >
                 <button 
                   onClick={() => setSelectedService(null)}
-                  className="absolute top-4 right-4 md:top-6 md:right-6 p-2 rounded-full text-white/50 hover:text-white hover:bg-white/10 transition-colors z-[100] bg-black/40 backdrop-blur-md border border-white/10"
+                  className="absolute top-4 right-4 md:top-6 md:right-6 p-2 rounded-full text-white/50 hover:text-white hover:bg-[#08080c]/90 transition-colors z-[100] bg-[#08080c]/60 backdrop-blur-md border border-white/10"
                 >
                   <X className="w-6 h-6" />
                 </button>
@@ -269,7 +269,7 @@ export function Catalog({ setPage }: { setPage: (p: any) => void }) {
                     {(() => {
                       const Icon = IconMap[selectedService.iconName];
                       return (
-                        <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl border border-white/[0.08] bg-white/[0.02] shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)] flex items-center justify-center text-white mb-6 sm:mb-8">
+                        <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl border border-white/[0.08] bg-[#08080c]/60 shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)] flex items-center justify-center text-white mb-6 sm:mb-8">
                           <Icon className="w-5 h-5" strokeWidth={1.5} />
                         </div>
                       );
@@ -307,7 +307,7 @@ export function Catalog({ setPage }: { setPage: (p: any) => void }) {
                   <div className="pt-6 sm:pt-8 border-t border-white/10">
                     <button 
                       onClick={() => handleOrder(selectedService)}
-                      className="bg-purple-600 text-white hover:bg-purple-500 py-3 sm:py-4 px-6 sm:px-8 rounded-xl sm:rounded-2xl font-semibold text-[14px] sm:text-[15px] transition-all shadow-[0_4px_20px_rgba(168,85,247,0.3)] hover:shadow-[0_6px_24px_rgba(168,85,247,0.5)] hover:-translate-y-0.5 inline-flex items-center gap-3 w-full sm:w-auto justify-center"
+                      className="bg-purple-800 text-white hover:bg-purple-700 py-3 sm:py-4 px-6 sm:px-8 rounded-xl sm:rounded-2xl font-semibold text-[14px] sm:text-[15px] transition-all shadow-[0_4px_20px_rgba(168,85,247,0.3)] hover:shadow-[0_6px_24px_rgba(168,85,247,0.5)] hover:-translate-y-0.5 inline-flex items-center gap-3 w-full sm:w-auto justify-center"
                     >
                       Оформить заявку на проект
                       <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
@@ -316,7 +316,7 @@ export function Catalog({ setPage }: { setPage: (p: any) => void }) {
                 </div>
 
                 {/* Portfolio Side */}
-                <div className="w-full lg:w-[45%] bg-black/40 p-5 sm:p-6 md:p-12 border-t lg:border-t-0 lg:border-l border-white/10 lg:overflow-y-auto custom-scrollbar">
+                <div className="w-full lg:w-[45%] bg-[#08080c]/60 p-5 sm:p-6 md:p-12 border-t lg:border-t-0 lg:border-l border-white/10 lg:overflow-y-auto custom-scrollbar">
                   <h4 className="flex items-center gap-3 text-xl font-display font-medium mb-8 text-white pr-10 lg:pr-12">
                     <ImageIcon className="w-6 h-6 text-white/40" />
                     Примеры интеграции
@@ -324,7 +324,7 @@ export function Catalog({ setPage }: { setPage: (p: any) => void }) {
                   {selectedService.portfolio && selectedService.portfolio.length > 0 ? (
                     <div className={selectedService.id === 's-2' ? "space-y-8" : "space-y-6"}>
                       {selectedService.portfolio.map((item, i) => (
-                        <div key={i} className="group relative rounded-2xl overflow-hidden shadow-xl border border-white/10 bg-white/[0.02]">
+                        <div key={i} className="group relative rounded-2xl overflow-hidden shadow-xl border border-white/10 bg-[#08080c]/60">
                           <img 
                             src={item.image} 
                             alt={item.title}
@@ -338,7 +338,7 @@ export function Catalog({ setPage }: { setPage: (p: any) => void }) {
                                )}
                             </div>
                           ) : (
-                            <div className="p-4 border-t border-white/5 bg-black/20">
+                            <div className="p-4 border-t border-white/5 bg-[#08080c]/60">
                                <h5 className="text-white/80 font-medium text-sm tracking-wide">{item.title}</h5>
                             </div>
                           )}
@@ -346,7 +346,7 @@ export function Catalog({ setPage }: { setPage: (p: any) => void }) {
                       ))}
                     </div>
                   ) : (
-                    <div className="h-64 rounded-3xl border border-dashed border-white/20 bg-white/[0.02] flex items-center justify-center flex-col gap-4 p-8 text-center">
+                    <div className="h-64 rounded-3xl border border-dashed border-white/20 bg-[#08080c]/60 flex items-center justify-center flex-col gap-4 p-8 text-center">
                       <Shield className="w-10 h-10 text-white/20" />
                       <div>
                         <span className="block text-white font-medium mb-2">Проекты под NDA</span>

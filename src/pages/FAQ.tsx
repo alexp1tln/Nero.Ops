@@ -56,7 +56,7 @@ export function FAQ() {
               viewport={{ once: true, margin: "-50px" }}
               transition={{ delay: i * 0.1, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
               key={i}
-              className={`border border-white/10 rounded-3xl transition-all duration-500 overflow-hidden cursor-pointer backdrop-blur-xl ${isOpen ? 'bg-white/[0.08] shadow-[inset_0_1px_1px_rgba(255,255,255,0.05),0_8px_32px_rgba(255,255,255,0.05)] border-white/20' : 'bg-white/[0.02] hover:bg-white/[0.04]'}`}
+              className={`border border-white/10 rounded-3xl transition-all duration-500 overflow-hidden cursor-pointer backdrop-blur-xl ${isOpen ? 'bg-white/[0.08] shadow-[inset_0_1px_1px_rgba(255,255,255,0.05),0_8px_32px_rgba(255,255,255,0.05)] border-white/20' : 'bg-[#08080c]/60 hover:bg-[#08080c]/80'}`}
               onClick={() => setOpenIndex(isOpen ? null : i)}
             >
               <div className="px-8 py-7 flex items-center justify-between gap-6">

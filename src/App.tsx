@@ -6,7 +6,6 @@
 import { useState, useEffect } from 'react';
 import { AppProvider } from './context/AppContext';
 import { Navigation } from './components/Navigation';
-import { CustomCursor } from './components/CustomCursor';
 import { AnimatedBackground } from './components/AnimatedBackground';
 import { Home } from './pages/Home';
 import { Catalog } from './pages/Catalog';
@@ -31,7 +30,6 @@ export default function App() {
 
   return (
     <AppProvider>
-      <CustomCursor />
       <AnimatedBackground />
       <div className="min-h-screen bg-transparent text-[#f5f5f7] flex flex-col font-sans overflow-x-hidden selection:bg-indigo-500/30 selection:text-white relative z-0">
         <Navigation currentPage={page} setPage={setPage} />

@@ -65,12 +65,12 @@ export function PriceCalculator({ setPage }: { setPage: (p: any) => void }) {
                        className={`p-5 sm:p-6 rounded-2xl sm:rounded-3xl border transition-all duration-300 cursor-pointer backdrop-blur-xl relative overflow-hidden flex flex-col justify-between min-h-[120px] sm:min-h-[140px] ${
                          selected.has(s.id) 
                            ? 'bg-white/[0.08] border-white/30 shadow-[0_8px_32px_rgba(255,255,255,0.05)]' 
-                           : 'bg-white/[0.03] border-white/5 hover:bg-white/[0.06] hover:border-white/10 shadow-sm'
+                           : 'bg-[#08080c]/60 border-white/5 hover:bg-[#08080c]/80 hover:border-white/10 shadow-sm'
                        }`}
                     >
                        <div className="absolute top-4 right-4 sm:top-6 sm:right-6">
                          <div className={`w-5 h-5 sm:w-6 sm:h-6 rounded-full border flex items-center justify-center transition-colors ${
-                           selected.has(s.id) ? 'bg-white border-white text-black' : 'border-white/20 bg-black/20 text-transparent'
+                           selected.has(s.id) ? 'bg-white border-white text-black' : 'border-white/20 bg-[#08080c]/60 text-transparent'
                          }`}>
                            <Check className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
                          </div>
@@ -106,12 +106,12 @@ export function PriceCalculator({ setPage }: { setPage: (p: any) => void }) {
                        className={`p-5 sm:p-6 rounded-2xl sm:rounded-3xl border transition-all duration-300 cursor-pointer backdrop-blur-xl relative overflow-hidden flex flex-col justify-between min-h-[120px] sm:min-h-[140px] ${
                          selected.has(s.id) 
                            ? 'bg-white/[0.08] border-white/30 shadow-[0_8px_32px_rgba(255,255,255,0.05)]' 
-                           : 'bg-white/[0.03] border-white/5 hover:bg-white/[0.06] hover:border-white/10 shadow-sm'
+                           : 'bg-[#08080c]/60 border-white/5 hover:bg-[#08080c]/80 hover:border-white/10 shadow-sm'
                        }`}
                     >
                        <div className="absolute top-4 right-4 sm:top-6 sm:right-6">
                          <div className={`w-5 h-5 sm:w-6 sm:h-6 rounded-full border flex items-center justify-center transition-colors ${
-                           selected.has(s.id) ? 'bg-white border-white text-black' : 'border-white/20 bg-black/20 text-transparent'
+                           selected.has(s.id) ? 'bg-white border-white text-black' : 'border-white/20 bg-[#08080c]/60 text-transparent'
                          }`}>
                            <Check className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
                          </div>

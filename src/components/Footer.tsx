@@ -10,7 +10,7 @@ export function Footer({ setPage }: { setPage: (p: any) => void }) {
     }
   };
   return (
-    <footer className="bg-black border-t border-white/[0.05] py-16 text-white/50 text-sm w-full relative z-50">
+    <footer className="bg-[#040407] border-t border-white/[0.05] py-16 text-white/50 text-sm w-full relative z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-4 gap-12">
         <div className="col-span-1 md:col-span-2">
           <div className="flex items-center gap-4 mb-6 cursor-pointer group" onClick={() => setPage('home')}>

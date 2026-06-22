@@ -23,7 +23,7 @@ export function ContactForm() {
   };
 
   return (
-    <div className="bg-white/[0.03] p-5 sm:p-8 mt-5 md:p-10 rounded-2xl sm:rounded-3xl border border-white/10 shadow-inner backdrop-blur-md w-full relative overflow-hidden">
+    <div className="bg-[#08080c]/60 p-5 sm:p-8 mt-5 md:p-10 rounded-2xl sm:rounded-3xl border border-white/10 shadow-inner backdrop-blur-md w-full relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-white/5 z-0" />
       
       {!submitted ? (
@@ -41,20 +41,20 @@ export function ContactForm() {
           <div className="grid md:grid-cols-2 gap-4 sm:gap-5">
             <div className="space-y-1.5 sm:space-y-2">
               <label className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider text-white/50 ml-1">Имя и Компания</label>
-              <input name="name" required type="text" className="w-full bg-black/40 border border-white/10 focus:border-white/50 focus:bg-white/5 transition-all outline-none rounded-xl px-4 py-2.5 sm:py-3 text-white text-[14px] sm:text-[15px] placeholder-white/20" placeholder="Иван Озеров, TechCorp" />
+              <input name="name" required type="text" className="w-full bg-[#08080c]/60 border border-white/10 focus:border-white/50 focus:bg-white/5 transition-all outline-none rounded-xl px-4 py-2.5 sm:py-3 text-white text-[14px] sm:text-[15px] placeholder-white/20" placeholder="Иван Озеров, TechCorp" />
             </div>
             <div className="space-y-1.5 sm:space-y-2">
               <label className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider text-white/50 ml-1">Контакты</label>
-              <input name="contacts" required type="text" className="w-full bg-black/40 border border-white/10 focus:border-white/50 focus:bg-white/5 transition-all outline-none rounded-xl px-4 py-2.5 sm:py-3 text-white text-[14px] sm:text-[15px] placeholder-white/20" placeholder="ivan@domain.com" />
+              <input name="contacts" required type="text" className="w-full bg-[#08080c]/60 border border-white/10 focus:border-white/50 focus:bg-white/5 transition-all outline-none rounded-xl px-4 py-2.5 sm:py-3 text-white text-[14px] sm:text-[15px] placeholder-white/20" placeholder="ivan@domain.com" />
             </div>
           </div>
           
           <div className="space-y-1.5 sm:space-y-2">
             <label className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider text-white/50 ml-1">Бизнес-задача / Бриф</label>
-            <textarea name="task" rows={4} className="w-full bg-black/40 border border-white/10 focus:border-white/50 focus:bg-white/5 transition-all outline-none rounded-xl px-4 py-2.5 sm:py-3 text-white text-[14px] sm:text-[15px] placeholder-white/20 resize-none" placeholder="Краткое описание текущей ситуации и целей..." />
+            <textarea name="task" rows={4} className="w-full bg-[#08080c]/60 border border-white/10 focus:border-white/50 focus:bg-white/5 transition-all outline-none rounded-xl px-4 py-2.5 sm:py-3 text-white text-[14px] sm:text-[15px] placeholder-white/20 resize-none" placeholder="Краткое описание текущей ситуации и целей..." />
           </div>
           
-          <button type="submit" className="w-full bg-purple-600 text-white hover:bg-purple-500 font-semibold px-6 py-3 sm:px-8 sm:py-3.5 rounded-xl flex items-center justify-center gap-2 transition-all shadow-[0_4px_14px_rgba(168,85,247,0.3)] hover:shadow-[0_6px_20px_rgba(168,85,247,0.5)] hover:-translate-y-0.5 mt-2 text-[14px] sm:text-base">
+          <button type="submit" className="w-full bg-purple-800 text-white hover:bg-purple-700 font-semibold px-6 py-3 sm:px-8 sm:py-3.5 rounded-xl flex items-center justify-center gap-2 transition-all shadow-[0_4px_14px_rgba(168,85,247,0.3)] hover:shadow-[0_6px_20px_rgba(168,85,247,0.5)] hover:-translate-y-0.5 mt-2 text-[14px] sm:text-base">
             Отправить запрос
             <Send className="w-4 h-4 ml-1" />
           </button>
